@@ -4,7 +4,7 @@
 		header("location:index.php?pesan=belum_login");
 	}
 	?>
-s
+
 <?php
     include "bot.php";
 ?>
