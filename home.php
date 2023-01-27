@@ -12,34 +12,55 @@
 <input type="checkbox" id="nav-toggle" />
 		<div class="sidebar">
 			<div class="sidebar-brand">
-			    	<h2><i class="fas fa-cake-candles"></i><span>Desert Box</span></h2>
+			    <h2><span>Oresto</span></h2>
 			</div>
-			<div class="sidebar-menu" id="body">
+			<div class="sidebar-menu" id="">
 				<li class="item">
-					<a href="index" class="menu-btn"><i class='bx bxs-grid' ></i><span>Dashboard</span> </a>
+					<a href="" class="menu-btn"><span>Dashboard</span> </a>
 				</li>
-				<li class="item" id="orders">
-					<a href="#orders" class="menu-btn">
-						<i class="fa-solid  fa-store"></i><span>Product</span>
+				<li class="item" id="">
+					<a href="" class="menu-btn">
+						</i><span>Masakan</span>
 					</a>
 				</li>
-				<li class="item" id="testimoni">
-					<a href="#testimoni" class="menu-btn">
-						<i class="fa-solid fa-eye"></i><span>Customers</span>
+				<li class="item" id="">
+					<a href="" class="menu-btn">
+						<span>Kategori Masakan<i class="fas fa-chevron-down drop-down"></i></span>
 					</a>
 				</li>
-				<li class="item" id="product">
-					<a href="#product" class="menu-btn">
-						<i class='bx bx-receipt' ></i><span>Orders</span>
-					</a>
-					
+				<li class="item" id="">
+					<a href="" class="menu-btn">
+						</i><span>Meja</span>
+					</a>	
 				</li>
-				<li class="item" id="settings">
+				<li class="item" id="">
+					<a href="" class="menu-btn">
+						</i><span>Laporan</span>
+					</a>	
+				</li>
+				<li class="item" id="">
+					<a href="" class="menu-btn">
+						</i><span>Transaksi</span>
+					</a>	
+				</li>
+				<li class="item" id="">
 					<a href="proses_logout.php" class="menu-btn">
-						<i class='bx bx-cog'></i><span>Logout</span>
+						<span>Logout</span>
 					</a>
-					
 				</li>
 			</div>
+		</div>
+		<div class="maint-content">
+			<header>
+				<h2>
+					<label for="nav-toggle">
+						<span class="las la-bars"></span>
+					</label>
+				    
+				</h2>
+				
+           
+  
+			</header>
 		</div>
 		

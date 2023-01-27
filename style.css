@@ -1,13 +1,24 @@
+
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	list-style-type: none;
+	text-decoration: none;
+	font-family: 'poppins', sans-serif;
+}
+
+
 .container {
-    width: 100px;
-    min-height: 400px;
+    width: 300px;
+    min-height: 300px;
     background: #D9D9D9;
     border-radius: 5px;
     box-shadow: 0 0 5px rgba(0,0,0,.3);
     padding: 44px 30px;
 }
 .btn {
-    margin-left :  300px;
+    margin-left : 213px;
 }
 h2 {
     font-family: 'Inter';
@@ -23,13 +34,16 @@ label {
     font-size: 24px;
     line-height: 29px;
 }
+
+
+
 .sidebar {
 	width: 250px;
 	position: fixed;
 	left: 0;
 	top: 0;
 	height: 100%;
-	background: #000000;
+	background: #C3A0A0;
 	z-index: 100;
 	transition: width 300ms;
 }
@@ -45,14 +59,8 @@ label {
 	text-align: center;
 }
 
-.sidebar .sidebar-menu .item .menu-btn:hover {
-	color:  #EB1D36;
-}
-
-.sidebar .sidebar-menu .item .menu-btn i {
-	margin-right: 20px;
-}
 .sidebar .sidebar-menu .item .menu-btn {
+	display: block;
 	color: #B9FFF8;
 	position: relative;
 	padding: 25px 20px;
@@ -60,7 +68,7 @@ label {
 }
 
 .sidebar .sidebar-menu .item .menu-btn:hover {
-	color:  #EB1D36;
+	color:  #754e52;
 }
 
 .sidebar .sidebar-menu .item .menu-btn i {
@@ -107,7 +115,6 @@ label {
 	max-height: 500px;
 }
 
-
 #nav-toggle:checked + .sidebar {
 	width: 70px;
 }
@@ -135,5 +142,291 @@ label {
 	width: calc(100% - 70px);
 	left: 70px;
 }
+
+.maint-content {
+	transition: margin-left 300ms;
+	margin-left: 250px;
+}
+
+header {
+	background: #fff;
+	display: flex;
+	justify-content: space-between;
+	padding: 1rem 1.5rem;
+	box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+	position: fixed;
+	Left: 250px;
+	width: calc(100% - 250px);
+	top: 0;
+	z-index: 100;
+    background:  #C3A0A0;
+}
+
+header h2 {
+	color: #B9FFF8;
+}
+
+header label span {
+	font-size: 1.7rem;
+	padding-right: 1rem;
+}
+.card {
+    margin-top: 4em;
+    height: 20rem;
+    width: 15rem;
+    
+}
+.btn-outline-dark {
+    margin-bottom: 4%;
+    background-color: #F4DEDE;
+    margin-top: 5%;
+}
+.rtng {
+    background-color: #F4DEDE;
+    height: 140px; 
+    color: #E18F8F;
+}
+ .date {
+     margin-left: 1%;
+ }
+ 
+ 
+ html {
+  font-family: 'poppins', sans-serif;
+  font-size: 100%;
+  line-height: 1.4;
+  font-weight: 400;
+  color:  #E18F8F;
+}
+
+.calendar {
+    background:  #F4DEDE;
+    height: 48vh;
+}
+
+
+.month-indicator {
+  color:  #E18F8F;
+  text-align: center;
+  font-weight: 900;
+  font-size: 22px;
+}
+
+.day-of-week,
+.date-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.day-of-week {
+  margin-top: 1.25em;
+}
+
+.day-of-week > * {
+  font-size: 0.9em;
+  color:  #E18F8F;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  font-variant: small-caps;
+  text-align: center;
+}
+
+/* Dates */
+.date-grid {
+  margin-top: 0.5em;
+}
+
+/* Positioning the first day */
+.date-grid button:first-child {
+  grid-column: 6;
+}
+
+.date-grid button {
+  position: relative;
+  border: 0;
+  width: 4.5ch;
+  height: 4.5ch;
+  color:  #E18F8F;
+}
+
+.date-grid button:hover,
+.date-grid button:focus {
+  outline: none;
+  color:  #E18F8F;
+
+}
+
+.date-grid button:active,
+.date-grid button.is-selected {
+  color:  #E18F8F;
+}
+ 
+ 
+.hui {
+    margin-top: 2em;
+}
+ 
+
+ 
+ 
+ 
+ 
+ /**/
+@media only screen and (max-width: 1200px) {
+	.sidebar {
+		width: 70px;
+	}
+
+	.sidebar .sidebar-brand,
+	.sidebar li {
+		padding-left: 1rem;
+		text-align: center;
+	}
+
+	.sidebar li a {
+		padding-left: 0rem;
+	}
+
+	.sidebar .sidebar-brand h2 span:last-child,
+	.sidebar li a span:last-child {
+		display: none;
+	}
+
+	.maint-content {
+		margin-left: 70px;
+	}
+
+	.maint-content header {
+		width: calc(100% - 70px);
+		left: 70px;
+	}
+
+	.sidebar:hover {
+		width: 300px;
+	}
+
+	.sidebar:hover .sidebar-brand,
+	.sidebar:hover li {
+		padding-left: 2rem;
+		text-align: left;
+	}
+
+	.sidebar:hover li a {
+		padding-left: 1rem;
+	}
+
+	.sidebar:hover .sidebar-brand h2 span:last-child,
+	.sidebar:hover li a span:last-child {
+		display: inline;
+	}
+}
+
+@media only screen and (max-width: 960px) {
+	
+	header {
+	    height: 76px;
+	}
+	.card {
+	    margin-left: 55px;
+	   
+	}
+	.rtng {
+    background-color: #F4DEDE;
+    height: 287px; 
+    color: #E18F8F;
+   }
+   
+  
+}
+
+@media only screen and (max-width: 768px) {
+
+
+	.sidebar {
+		left: -100% !important;
+	}
+
+	header h2 {
+		display: flex;
+		align-items: center;
+	}
+
+	header h2 label {
+		display: inline-block;
+		text-align: center;
+		background: var(--main-color);
+		padding-right: 0rem;
+		margin-right: 1rem;
+		height: 40px;
+		width: 40px;
+		border-radius: 50%;
+		color: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: center !important;
+	}
+
+	header h2 span {
+		text-align: center;
+		padding-right: 0rem;
+	}
+
+	header h2 {
+		font-size: 1.1rem;
+	}
+
+	.maint-content {
+		width: 100%;
+		margin-left: 0rem;
+	}
+
+	header {
+		width: 100% !important;
+		left: 0 !important;
+	}
+	 .hui {
+       width: 500px;
+       height: 300px;
+       
+   }
+    
+	
+	#nav-toggle:checked + .sidebar {
+		left: 0 !important;
+		z-index: 100;
+		width: 300px;
+	}
+
+	#nav-toggle:checked + .sidebar:hover .sidebar-brand,
+	#nav-toggle:checked + .sidebar:hover li {
+		padding-left: 2rem;
+		text-align: left;
+	}
+
+	#nav-toggle:checked + .sidebar li a {
+		padding-left: 1rem;
+	}
+
+	#nav-toggle:checked + .sidebar .sidebar-brand h2 span:last-child,
+	#nav-toggle:checked + .sidebar li a span:last-child {
+		display: inline;
+	}
+
+	#nav-toggle:checked ~ .maint-content {
+		margin-left: 0rem !important;
+	}
+}
+
+@media only screen and (max-width: 560px) {
+	.hui {
+       width: 350px;
+       height: 300px;
+   }
+}
+
+
+
+
+
 
 
