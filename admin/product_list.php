@@ -1,9 +1,7 @@
-<?php
-    include "koneksi.php";
-?>
+
 
 <a href="produk_add_form.php"><button>Tambah Produk</button></a>
-<table border=1>
+<table class="table">
     <tr>
         <td>Id</td>
         <td>Nama Produk</td>
