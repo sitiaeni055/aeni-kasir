@@ -55,12 +55,18 @@
 				<h2>
 					<label for="nav-toggle">
 						<span class="las la-bars"></span>
-					</label>
-				    
+					</label>	    
 				</h2>
-				
-           
-  
 			</header>
+			<h3 class="a">Daftar Menu</h3>
+			<nav aria-label="breadcrumb">
+			<ol class="breadcrumb b">
+				<li class="breadcrumb-item"><a href="#">Kategori Masakan</a></li>
+				<li class="breadcrumb-item active" aria-current="page">Masakan</li>
+			</ol>
+			</nav>
+			<div class="card">
+				
+			</div>
 		</div>
 		

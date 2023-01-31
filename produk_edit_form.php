@@ -1,7 +1,7 @@
 <?php
     include "koneksi.php";
     $id = $_GET['id'];
-    $edit = mysqli_query($koneksi, "SELECT * FROM masakan WHERE id='$id'");
+    $edit = $conn->query("SELECT * FROM masakan WHERE id='$id'");
 ?>
     <form action="" method="post">
 <?php
@@ -22,7 +22,7 @@
         $kategori = $_POST['kategori'];
         $harga = $_POST['harga'];
         $stok = $_POST['stok'];
-        $update = mysqli_query($koneksi, "UPDATE masakan SET nama='$nama', kategori='$kategori', harga='$harga', stok='$stok' WHERE id='$id'");
+        $update = $conn->query("UPDATE masakan SET nama='$nama', kategori='$kategori', harga='$harga', stok='$stok' WHERE id='$id'");
         if($update){
             header('location:product_list.php');
         }

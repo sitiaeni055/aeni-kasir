@@ -14,7 +14,7 @@
 
     <?php
     $query = "SELECT * FROM masakan";
-    $select = mysqli_query($koneksi, $query);
+    $select = $conn->query($query);
     $no = 1;
     while ($data = mysqli_fetch_array($select)){
     ?>

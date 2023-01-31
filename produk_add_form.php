@@ -6,7 +6,7 @@
         $harga = $_POST['harga'];
         $stok = $_POST['stok'];
 
-        $add = mysqli_query($koneksi, "INSERT INTO masakan VALUE ('', '$nama', '$kategori', '$harga', '$stok')");
+        $add = $conn->query("INSERT INTO masakan VALUE ('', '$nama', '$kategori', '$harga', '$stok')");
 
         if($add){
             header('location:product_list.php');

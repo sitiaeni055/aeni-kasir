@@ -1,10 +1,15 @@
-<?php 
- 
-$koneksi = mysqli_connect("localhost","root","","saa_kasir");
- 
+<?php
+$servername = "localhost:3306";
+$username = "root";
+$password = "";
+$database = "saa_kasir";
+
+// Create connection
+$conn = new mysqli($servername, $username, $password, $database);
+
 // Check connection
-if (mysqli_connect_errno()){
-	echo "Koneksi database gagal : " . mysqli_connect_error();
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
 }
- 
+
 ?>
