@@ -1,3 +1,40 @@
+.a {
+	font-family: 'Poppins', sans-serif;
+	background: #D9D9D9;
+	width: 500px;
+	height: 300px;
+	border-radius: 10px;
+}
+h2 {
+	font-family: 'Poppins', sans-serif;
+	font-style: normal;
+	font-weight: 700;
+	font-size: 32px;
+	line-height: 39px;
+}
+.b{
+	font-family: 'Inter';
+	font-style: normal;
+	font-weight: 400;
+	font-size: 24px;
+	line-height: 29px;
+}
+.form-control {
+	padding: 6px;
+	width: 100%;
+	box-sizing: border-box;
+	background: transparent;	
+  }
+.base {
+	width: 500px;
+	height: auto;
+	padding: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 22px;
+	background: #C3A0A0;
+	border-radius: 10px;
+}
 
 * {
 	padding: 0;
@@ -5,80 +42,7 @@
 	box-sizing: border-box;
 	list-style-type: none;
 	text-decoration: none;
-	font-family: 'poppins', sans-serif;
-}
-
-
-.container {
-    width: 300px;
-    min-height: 300px;
-    background: #D9D9D9;
-    border-radius: 5px;
-    box-shadow: 0 0 5px rgba(0,0,0,.3);
-    padding: 44px 30px;
-}
-.btn {
-    margin-left : 213px;
-}
-h2 {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-    font-size: 32px;
-    line-height: 39px;
-}
-label {
-    font-family: 'Inter';
-    font-style: normal;
-    font-weight: 400;
-    font-size: 24px;
-    line-height: 29px;
-}
-.a {
-	font-family: 'Inter';
-    font-style: normal;
-    font-weight: 800;
-	margin-top: 64px;
-	margin-left: 12px;
-}
-.b {
-	margin-left: 12px;
-}
-
-button {
-	background-color: salmon;
-	color: #fff;
-	padding: 10px;
-	text-decoration: none;
-	font-size: 12px;
-	border: 0px;
-	margin-top: 20px;
-}
-label {
-margin-top: 10px;
-float: left;
-text-align: left;
-width: 100%;
-}
-input {
-padding: 6px;
-width: 100%;
-box-sizing: border-box;
-background: #f8f8f8;
-border: 2px solid #ccc;
-outline-color: salmon;
-}
-div {
-width: 100%;
-height: auto;
-}
-.base {
-width: 400px;
-height: auto;
-padding: 20px;
-margin-left: auto;
-margin-right: auto;
-background: #ededed;
+	font-family: 'Poppins', sans-serif;
 }
 
 .sidebar {
@@ -101,6 +65,7 @@ background: #ededed;
 .sidebar-brand span {
 	display: inline-block;
 	text-align: center;
+	font-size: 55px;
 }
 
 .sidebar .sidebar-menu .item .menu-btn {
@@ -112,7 +77,7 @@ background: #ededed;
 }
 
 .sidebar .sidebar-menu .item .menu-btn:hover {
-	color:  #754e52;
+	color:  #7c5055;
 }
 
 .sidebar .sidebar-menu .item .menu-btn i {
@@ -136,7 +101,7 @@ background: #ededed;
 .sidebar .sidebar-menu .item .sub-menu a {
 	display: block;
 	position: relative;
-	color: #EC7272;
+	color: #834141;
 	white-space: nowrap;
 	font-size: 15px;
 	padding: 20px;
@@ -214,105 +179,7 @@ header label span {
 	font-size: 1.7rem;
 	padding-right: 1rem;
 }
-.card {
-    margin-top: 4em;
-    height: 20rem;
-    width: 15rem;
-    
-}
-.btn-outline-dark {
-    margin-bottom: 4%;
-    background-color: #F4DEDE;
-    margin-top: 5%;
-}
-.rtng {
-    background-color: #F4DEDE;
-    height: 140px; 
-    color: #E18F8F;
-}
- .date {
-     margin-left: 1%;
- }
- 
- 
- html {
-  font-family: 'poppins', sans-serif;
-  font-size: 100%;
-  line-height: 1.4;
-  font-weight: 400;
-  color:  #E18F8F;
-}
 
-.calendar {
-    background:  #F4DEDE;
-    height: 48vh;
-}
-
-
-.month-indicator {
-  color:  #E18F8F;
-  text-align: center;
-  font-weight: 900;
-  font-size: 22px;
-}
-
-.day-of-week,
-.date-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-}
-
-.day-of-week {
-  margin-top: 1.25em;
-}
-
-.day-of-week > * {
-  font-size: 0.9em;
-  color:  #E18F8F;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  font-variant: small-caps;
-  text-align: center;
-}
-
-/* Dates */
-.date-grid {
-  margin-top: 0.5em;
-}
-
-/* Positioning the first day */
-.date-grid button:first-child {
-  grid-column: 6;
-}
-
-.date-grid button {
-  position: relative;
-  border: 0;
-  width: 4.5ch;
-  height: 4.5ch;
-  color:  #E18F8F;
-}
-
-.date-grid button:hover,
-.date-grid button:focus {
-  outline: none;
-  color:  #E18F8F;
-
-}
-
-.date-grid button:active,
-.date-grid button.is-selected {
-  color:  #E18F8F;
-}
- 
- 
-.hui {
-    margin-top: 2em;
-}
- 
-
- 
- 
  
  
  /**/
@@ -370,16 +237,6 @@ header label span {
 	header {
 	    height: 76px;
 	}
-	.card {
-	    margin-left: 55px;
-	   
-	}
-	.rtng {
-    background-color: #F4DEDE;
-    height: 287px; 
-    color: #E18F8F;
-   }
-   
   
 }
 
@@ -428,11 +285,6 @@ header label span {
 		width: 100% !important;
 		left: 0 !important;
 	}
-	 .hui {
-       width: 500px;
-       height: 300px;
-       
-   }
     
 	
 	#nav-toggle:checked + .sidebar {
@@ -460,15 +312,6 @@ header label span {
 		margin-left: 0rem !important;
 	}
 }
-
-@media only screen and (max-width: 560px) {
-	.hui {
-       width: 350px;
-       height: 300px;
-   }
-}
-
-
 
 
 

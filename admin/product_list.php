@@ -1,7 +1,5 @@
-
-
-<a href="produk_add_form.php"><button>Tambah Produk</button></a>
-<table class="table">
+<a href="home.php?halaman=tambah_produk"><button type="submit" class="btn btn-secondary" style=" margin-top: 48px; ">Tambah Produk</button></a>
+<table class="table mt-4">
     <tr>
         <td>Id</td>
         <td>Nama Produk</td>
@@ -24,10 +22,10 @@
             <td><?php echo $data["kategori"]?></td>
             <td><?php echo $data["harga"]?></td>
             <td><?php echo $data["stok"]?></td>
-            <td><img width="70" src="image/<?php echo $data["gambar"]?>" alt=""></td>
+            <td><img width="70" src="../image/<?php echo $data["gambar"]?>" alt=""></td>
             <td>
-                <a href="produk_delete.php?id=<?php echo $data['id']?>">Delete</a>
-                <a href="produk_edit_form.php?id=<?php echo $data['id']?>">Edit</a>
+                <a href="home.php?id=<?php echo $data['id']?>&halaman=delete"><button type="submit" class="btn btn-primary">Delete</button></a>
+                <a href="home.php?id=<?php echo $data['id']?>&halaman=edit"><button type="submit" class="btn btn-danger">Edit</button></a>
             
             </td>
         </tr>
@@ -35,3 +33,4 @@
     }
     ?>
 </table>
+

@@ -4,77 +4,82 @@
 	if($_SESSION['status']!="login"){
 		header("location:index.php?pesan=belum_login");
 	}
-	?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Form login</title>
-    <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
-    <link href='https://unpkg.com/boxicons@2.1.3/css/boxicons.min.css' rel='stylesheet'>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    </head>
-    <link rel="stylesheet" href="../style.css">
-    <link href="../dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-  </head>
-  <body>
+	include "../bot.php";
+?>
+<link rel="stylesheet" href="../style.css">
 <input type="checkbox" id="nav-toggle" />
 		<div class="sidebar">
 			<div class="sidebar-brand">
-			    <h2><span>Oresto</span></h2>
+			    	<h2><span>Oresto</span></h2>
 			</div>
-			<div class="sidebar-menu" id="">
+			<div class="sidebar-menu" id="body">
 				<li class="item">
-					<a href="" class="menu-btn"><span>Dashboard</span> </a>
+					<a href="home.php?halaman=list-produk" class="menu-btn"><i class='bx bxs-grid' ></i><span>Dashboard</span> </a>
+
 				</li>
 				<li class="item" id="">
 					<a href="" class="menu-btn">
-						</i><span>Masakan</span>
+						<i class="fa-solid  fa-store"></i><span>Masakan</span>
 					</a>
 				</li>
 				<li class="item" id="">
 					<a href="" class="menu-btn">
-						<span>Kategori Masakan<i class="fas fa-chevron-down drop-down"></i></span>
+						<i class="fa-solid fa-eye"></i><span>Kategori<i class="fas fa-chevron-down drop-down"></i></span>
 					</a>
+					<div class="sub-menu">
+						<a href=""><i class="fa-solid fa-info" style="font-size: 25px;"></i><span>Info Orders</span></a>
+						<a href=""><i class="fa-solid fa-cart-shopping" style="font-size: 19px;"></i><span>Orders</span></a>
+					</div>
 				</li>
 				<li class="item" id="">
 					<a href="" class="menu-btn">
-						</i><span>Meja</span>
-					</a>	
+						<i class='bx bx-receipt' ></i><span>Transaksi <i class="fas fa-chevron-down drop-down"></i></span>
+					</a>
+					<div class="sub-menu">
+						<a href=""><i class="fa-solid fa-info" style="font-size: 25px;"></i><span>Orders</span></a>
+						<a href=""><i class="fa-solid fa-cart-shopping" style="font-size: 19px;"></i><span>Laporan</span></a>
+					</div>
 				</li>
 				<li class="item" id="">
-					<a href="" class="menu-btn">
-						</i><span>Laporan</span>
-					</a>	
-				</li>
-				<li class="item" id="">
-					<a href="" class="menu-btn">
-						</i><span>Transaksi</span>
-					</a>	
-				</li>
-				<li class="item" id="">
-					<a href="proses_logout.php" class="menu-btn">
-						<span>Logout</span>
+					<a href="../proses_logout.php" class="menu-btn">
+						<i class='bx bx-cog'></i><span>Logout</span>
 					</a>
 				</li>
 			</div>
 		</div>
-		<div class="maint-content">
-            <div class="row bg-danger" style="margin-top: 100px;">
-                <div class="col-md-2 p-4" style="max-width: 500px;">
-                <header>
+		<div class="maint-content p-4">
+			<header>
 				<h2>
 					<label for="nav-toggle">
 						<span class="las la-bars"></span>
-					</label>	    
+					</label>
 				</h2>
 			</header>
-                hhhhhhh
-                </div>
-            </div>
-			
-			
+			<?php
+			if (isset($_GET['halaman'])){
+				$page = $_GET['halaman'];
+
+				switch ($page) {
+					case 'tambah_produk':
+						include "produk_add_form.php";
+						break;
+					case 'list-produk':
+						include "product_list.php";
+						break;
+					case 'delete':
+						include "produk_delete.php";
+						break;
+					case 'edit':
+						include "produk_edit_form.php";
+						break;
+					
+					default:
+						echo "<center><h3>Maaf halaman tidak ditemukan</h3></center>";
+						break;
+				}
+			}else{
+				include "product_list.php";
+			}
+			?>
 		</div>
-		
+
