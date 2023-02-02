@@ -1,4 +1,4 @@
-<a href="home.php?halaman=tambah_produk"><button type="submit" class="btn btn-secondary" style=" margin-top: 48px; ">Tambah Produk</button></a>
+<a href="home.php?halaman=tambah_produk"><button type="submit" class="btn btn-secondary" style=" margin-top: 50px; "><i class="fa-solid fa-plus"></i>Tambah Produk</button></a>
 <table class="table mt-4">
     <tr>
         <td>Id</td>

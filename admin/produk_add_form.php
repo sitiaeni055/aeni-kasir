@@ -21,7 +21,7 @@
 
 <div class="">
     <h2 class="text-center mt-5 ">Tambah Produk</h2>
-    <form method="POST" action="" enctype="multipart/form-data" >
+    <form method="POST" action="" enctype="multipart/form-data">
       <section class="base">
         <div class="my-4">
           <label>Nama Produk</label>

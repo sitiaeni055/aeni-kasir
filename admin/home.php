@@ -55,6 +55,7 @@
 					</label>
 				</h2>
 			</header>
+			
 			<?php
 			if (isset($_GET['halaman'])){
 				$page = $_GET['halaman'];
