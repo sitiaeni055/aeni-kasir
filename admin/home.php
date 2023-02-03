@@ -18,27 +18,19 @@
 
 				</li>
 				<li class="item" id="">
-					<a href="" class="menu-btn">
-						<i class="fa-solid  fa-store"></i><span>Masakan</span>
+					<a href="home.php?halaman=input-pelanggan" class="menu-btn">
+						<i class="fa-solid  fa-store"></i><span>Input Pelanggan</span>
+					</a>
+				</li>
+				<li class="item" id="">
+					<a href="home.php?halaman=list-pelanggan" class="menu-btn">
+						<i class='bx bx-receipt' ></i><span>List Pelanggan</span>
 					</a>
 				</li>
 				<li class="item" id="">
 					<a href="" class="menu-btn">
-						<i class="fa-solid fa-eye"></i><span>Kategori<i class="fas fa-chevron-down drop-down"></i></span>
+						<i class='bx bx-receipt' ></i><span>Laporan</span>
 					</a>
-					<div class="sub-menu">
-						<a href=""><i class="fa-solid fa-info" style="font-size: 25px;"></i><span>Info Orders</span></a>
-						<a href=""><i class="fa-solid fa-cart-shopping" style="font-size: 19px;"></i><span>Orders</span></a>
-					</div>
-				</li>
-				<li class="item" id="">
-					<a href="" class="menu-btn">
-						<i class='bx bx-receipt' ></i><span>Transaksi <i class="fas fa-chevron-down drop-down"></i></span>
-					</a>
-					<div class="sub-menu">
-						<a href=""><i class="fa-solid fa-info" style="font-size: 25px;"></i><span>Orders</span></a>
-						<a href=""><i class="fa-solid fa-cart-shopping" style="font-size: 19px;"></i><span>Laporan</span></a>
-					</div>
 				</li>
 				<li class="item" id="">
 					<a href="../proses_logout.php" class="menu-btn">
@@ -72,8 +64,13 @@
 						break;
 					case 'edit':
 						include "produk_edit_form.php";
-						break;
-					
+						break;		
+					case 'input-pelanggan':
+						include "input_pelanggan.php";
+						break;		
+					case 'list-pelanggan':
+						include "list_pelanggan.php";
+						break;		
 					default:
 						echo "<center><h3>Maaf halaman tidak ditemukan</h3></center>";
 						break;

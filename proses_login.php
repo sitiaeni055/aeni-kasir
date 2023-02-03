@@ -18,7 +18,7 @@ if ($result->num_rows > 0) {
   while($row = $result->fetch_assoc()) {
 	$_SESSION['username'] = $username;
 	$_SESSION['status'] = "login";
-	header("location:home.php");
+	header("location:admin/home.php");
   }
 } else {
 	header("location:index.php?pesan=gagal");

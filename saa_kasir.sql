@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 25 Jan 2023 pada 08.09
--- Versi server: 10.4.24-MariaDB
--- Versi PHP: 8.1.6
+-- Generation Time: Feb 03, 2023 at 08:20 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,32 +18,34 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `kasir`
+-- Database: `saa_kasir`
 --
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `admin`
+-- Table structure for table `admin`
 --
 
 CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `role` enum('admin','petugas','','') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `admin`
+-- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`) VALUES
-(1, 'admin', 'admin12');
+INSERT INTO `admin` (`id`, `username`, `password`, `role`) VALUES
+(1, 'admin', '1844156d4166d94387f1a4ad031ca5fa', 'admin'),
+(2, 'petugas', '07bef86a8c7c2fe49683fd0e861a3352', 'petugas');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kategori_masakan`
+-- Table structure for table `kategori_masakan`
 --
 
 CREATE TABLE `kategori_masakan` (
@@ -53,7 +55,29 @@ CREATE TABLE `kategori_masakan` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `masakan`
+-- Table structure for table `list_pelanggan`
+--
+
+CREATE TABLE `list_pelanggan` (
+  `id` int(11) NOT NULL,
+  `nama_pelanggan` varchar(100) NOT NULL,
+  `meja` varchar(100) NOT NULL,
+  `waiters` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `list_pelanggan`
+--
+
+INSERT INTO `list_pelanggan` (`id`, `nama_pelanggan`, `meja`, `waiters`) VALUES
+(1, 'nisa', 'meja 1', 'mang ujang'),
+(4, 'nadin', 'meja 1', 'mang supri'),
+(5, 'fina', 'meja 1', 'mang ujang');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `masakan`
 --
 
 CREATE TABLE `masakan` (
@@ -61,24 +85,28 @@ CREATE TABLE `masakan` (
   `nama` varchar(100) NOT NULL,
   `kategori` varchar(100) NOT NULL,
   `harga` float NOT NULL,
-  `stok` int(11) NOT NULL
+  `stok` int(11) NOT NULL,
+  `gambar` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `masakan`
+-- Dumping data for table `masakan`
 --
 
-INSERT INTO `masakan` (`id`, `nama`, `kategori`, `harga`, `stok`) VALUES
-(1, 'Bakso', 'makanan', 20, 122),
-(2, 'Nasi goreng', 'makanan', 12, 100),
-(3, 'es kuwut', 'minuman', 5, 122),
-(7, 'buble tea', 'minuman', 8000, 178),
-(8, 'tea', 'minuman', 5, 60);
+INSERT INTO `masakan` (`id`, `nama`, `kategori`, `harga`, `stok`, `gambar`) VALUES
+(9, 'martabak', 'makanan', 15000, 100, 'martabak.jpeg'),
+(10, 'Bakso', 'makanan', 10000, 178, 'dca21bf3-923c-486f-bc2e-a3dcd759b1df.jpeg'),
+(11, 'Boba brown sugar', 'minuman', 8000, 1000, 'download.jpg'),
+(12, 'Martabak manis', 'makanan', 15000, 5333, '044788300_1649730758-shutterstock_2023551554.webp'),
+(13, 'Topokki', 'makanan', 20000, 500, 'topokki-instan-halal_11zon.jpg'),
+(14, 'Ramen', 'makanan', 35000, 1000, 'ramen-jakarta.width-800.jpegquality-80.jpg'),
+(17, 'caramel frappe', 'minuman', 15000, 1000, 'Homemade-Caramel-Frappe-with-Chocolate-Chips-500x500.png'),
+(20, 'Seblak', 'makanan', 10000, 1200, '3991499229.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `meja`
+-- Table structure for table `meja`
 --
 
 CREATE TABLE `meja` (
@@ -90,7 +118,7 @@ CREATE TABLE `meja` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `transaksi`
+-- Table structure for table `transaksi`
 --
 
 CREATE TABLE `transaksi` (
@@ -105,32 +133,44 @@ CREATE TABLE `transaksi` (
 --
 
 --
--- Indeks untuk tabel `admin`
+-- Indexes for table `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `masakan`
+-- Indexes for table `list_pelanggan`
+--
+ALTER TABLE `list_pelanggan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `masakan`
 --
 ALTER TABLE `masakan`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `admin`
+-- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT untuk tabel `masakan`
+-- AUTO_INCREMENT for table `list_pelanggan`
+--
+ALTER TABLE `list_pelanggan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `masakan`
 --
 ALTER TABLE `masakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
