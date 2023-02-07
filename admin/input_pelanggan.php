@@ -73,7 +73,7 @@
         </div>  
         <div class="my-4">
           <label>Nama Waiters</label>
-          <input type="text" name="waiters" autofocus="" required="" />
+          <input type="text" name="waiters" autofocus="" required="" style="margin-left: 5%;"/>
         </div>
         <div class="my-4">
          <button type="submit" name="add" class="btn btn-light">Kirim</button>

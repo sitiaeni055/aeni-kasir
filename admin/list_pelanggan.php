@@ -19,7 +19,7 @@
         <td><?php echo $row["meja"]?></td>
         <td><?php echo $row["waiters"]?></td>
         <td>
-            <a href=""><button type="submit" class="btn btn-success">Bayar</button></a>            
+            <a href="home.php?halaman=produk"><button type="submit" class="btn btn-success">Bayar</button></a>            
         </td>
     </tr>
     <?php

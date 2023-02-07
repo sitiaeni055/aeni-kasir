@@ -71,6 +71,12 @@
 					case 'list-pelanggan':
 						include "list_pelanggan.php";
 						break;		
+					case 'produk':
+						include "produk.php";
+						break;		
+					case 'keranjang_belanja':
+						include "keranjang_belanja.php";
+						break;		
 					default:
 						echo "<center><h3>Maaf halaman tidak ditemukan</h3></center>";
 						break;
