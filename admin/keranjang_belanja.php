@@ -23,11 +23,11 @@ if (isset($_GET['aksi'])) {
 
 switch($aksi){	
     case "tambah_produk":
-    $itemArray = array($kode_produk=>array('kode_produk'=>$kode_produk,'nama_produk'=>$nama_produk,'jumlah'=>$jumlah,'harga'=>$harga,'stok'=>$stok));
+    $itemArray = array($kode_produk=>array('id'=>$id,'nama_produk'=>$nama_produk,'jumlah'=>$jumlah,'harga'=>$harga,'stok'=>$stok));
     if(!empty($_SESSION["keranjang_belanja"])) {
-        if(in_array($data['kode_produk'],array_keys($_SESSION["keranjang_belanja"]))) {
+        if(in_array($data['id'],array_keys($_SESSION["keranjang_belanja"]))) {
             foreach($_SESSION["keranjang_belanja"] as $k => $v) {
-                if($data['kode_produk'] == $k) {
+                if($data['id'] == $k) {
                     $_SESSION["keranjang_belanja"] = array_merge($_SESSION["keranjang_belanja"],$itemArray);
                 }
             }
@@ -43,7 +43,7 @@ switch($aksi){
 
         if(!empty($_SESSION["keranjang_belanja"])) {
             foreach($_SESSION["keranjang_belanja"] as $k => $v) {
-                    if($_GET["kode_produk"] == $k)
+                    if($_GET["id"] == $k)
                         unset($_SESSION["keranjang_belanja"][$k]);
                     if(empty($_SESSION["keranjang_belanja"]))
                         unset($_SESSION["keranjang_belanja"]);
@@ -55,7 +55,7 @@ switch($aksi){
         $itemArray = array($kode_produk=>array('kode_produk'=>$kode_produk,'nama_produk'=>$nama_produk,'jumlah'=>$jumlah,'harga'=>$harga));
         if(!empty($_SESSION["keranjang_belanja"])) {
             foreach($_SESSION["keranjang_belanja"] as $k => $v) {
-                if($_GET["kode_produk"] == $k)
+                if($_GET["id"] == $k)
                 $_SESSION["keranjang_belanja"] = array_merge($_SESSION["keranjang_belanja"],$itemArray);
             }
         }
@@ -68,7 +68,6 @@ switch($aksi){
         <thead>
         <tr>
             <th>No</th>
-            <th>Kode</th>
             <th width="40%">Nama</th>
             <th>Harga</th>
             <th width="10%">QTY</th>
@@ -88,10 +87,10 @@ switch($aksi){
                 $sub_total = $item["jumlah"]*$item['harga'];
                 $total+=$sub_total;
         ?>
-            <input type="hidden" name="kode_produk[]" class="kode_produk" value="<?php echo $item["kode_produk"]; ?>"/>
+            <input type="hidden" name="id[]" class="id" value="<?php echo $item["id"]; ?>"/>
             <tr>
                 <td><?php echo $no; ?></td>
-                <td><?php echo $item["kode_produk"]; ?></td>
+                <td><?php echo $item["id"]; ?></td>
                 <td><?php echo $item["nama_produk"]; ?></td>
                 <td>Rp. <?php echo number_format($item["harga"],0,',','.');?> </td>
                 <td>
@@ -112,7 +111,7 @@ switch($aksi){
 
                 <td>
                     <form method="get">
-                        <input type="hidden" name="kode_produk"  value="<?php echo $item['kode_produk']; ?>" class="form-control">
+                        <input type="hidden" name="id"  value="<?php echo $item['id']; ?>" class="form-control">
                         <input type="hidden" name="aksi"  value="update" class="form-control">
                         <input type="hidden" name="halaman"  value="keranjang-belanja" class="form-control">
                         <input type="hidden" name="jumlah" value="<?php echo $item["jumlah"]; ?>" id="jumlaha<?php echo $no; ?>" value="" class="form-control">

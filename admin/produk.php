@@ -7,7 +7,7 @@
     if ($jumlah>0){
         while ($data = mysqli_fetch_array($hasil)):
     ?>
-        <div class="col-sm-3 mt-5">
+        <div class="col-lg-3 mt-5">
             <div class=" card thumbnail" >
                 <a href="#"><img src="../image/<?php echo $data['gambar'];?>" width="70%" height="50%" alt="Cinque Terre"></a>
                 <div class="caption">
