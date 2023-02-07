@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 03, 2023 at 08:20 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Generation Time: Feb 06, 2023 at 08:31 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
   `id` int(11) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
-  `role` enum('admin','petugas','','') NOT NULL
+  `role` enum('admin','petugas') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -41,16 +41,6 @@ CREATE TABLE `admin` (
 INSERT INTO `admin` (`id`, `username`, `password`, `role`) VALUES
 (1, 'admin', '1844156d4166d94387f1a4ad031ca5fa', 'admin'),
 (2, 'petugas', '07bef86a8c7c2fe49683fd0e861a3352', 'petugas');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `kategori_masakan`
---
-
-CREATE TABLE `kategori_masakan` (
-  `nama` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -100,20 +90,7 @@ INSERT INTO `masakan` (`id`, `nama`, `kategori`, `harga`, `stok`, `gambar`) VALU
 (12, 'Martabak manis', 'makanan', 15000, 5333, '044788300_1649730758-shutterstock_2023551554.webp'),
 (13, 'Topokki', 'makanan', 20000, 500, 'topokki-instan-halal_11zon.jpg'),
 (14, 'Ramen', 'makanan', 35000, 1000, 'ramen-jakarta.width-800.jpegquality-80.jpg'),
-(17, 'caramel frappe', 'minuman', 15000, 1000, 'Homemade-Caramel-Frappe-with-Chocolate-Chips-500x500.png'),
 (20, 'Seblak', 'makanan', 10000, 1200, '3991499229.jpg');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `meja`
---
-
-CREATE TABLE `meja` (
-  `no_meja` int(100) NOT NULL,
-  `jumlah_kursi` int(100) NOT NULL,
-  `status` varchar(225) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -122,9 +99,10 @@ CREATE TABLE `meja` (
 --
 
 CREATE TABLE `transaksi` (
-  `no` int(100) NOT NULL,
+  `id` int(11) NOT NULL,
   `masakan` varchar(125) NOT NULL,
   `no_meja` int(100) NOT NULL,
+  `waiters` varchar(100) NOT NULL,
   `tanggal` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -151,6 +129,12 @@ ALTER TABLE `masakan`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -171,6 +155,12 @@ ALTER TABLE `list_pelanggan`
 --
 ALTER TABLE `masakan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+
+--
+-- AUTO_INCREMENT for table `transaksi`
+--
+ALTER TABLE `transaksi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
