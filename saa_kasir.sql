@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 06, 2023 at 08:31 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.23
+-- Waktu pembuatan: 08 Feb 2023 pada 08.09
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Struktur dari tabel `admin`
 --
 
 CREATE TABLE `admin` (
@@ -35,7 +35,7 @@ CREATE TABLE `admin` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `admin`
+-- Dumping data untuk tabel `admin`
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `role`) VALUES
@@ -45,7 +45,20 @@ INSERT INTO `admin` (`id`, `username`, `password`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `list_pelanggan`
+-- Struktur dari tabel `detail_pesanan`
+--
+
+CREATE TABLE `detail_pesanan` (
+  `id` int(11) NOT NULL,
+  `pesanan_id` int(100) NOT NULL,
+  `produk_id` int(100) NOT NULL,
+  `jumlah` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `list_pelanggan`
 --
 
 CREATE TABLE `list_pelanggan` (
@@ -56,7 +69,7 @@ CREATE TABLE `list_pelanggan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `list_pelanggan`
+-- Dumping data untuk tabel `list_pelanggan`
 --
 
 INSERT INTO `list_pelanggan` (`id`, `nama_pelanggan`, `meja`, `waiters`) VALUES
@@ -67,7 +80,7 @@ INSERT INTO `list_pelanggan` (`id`, `nama_pelanggan`, `meja`, `waiters`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `masakan`
+-- Struktur dari tabel `masakan`
 --
 
 CREATE TABLE `masakan` (
@@ -80,30 +93,67 @@ CREATE TABLE `masakan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `masakan`
+-- Dumping data untuk tabel `masakan`
 --
 
 INSERT INTO `masakan` (`id`, `nama`, `kategori`, `harga`, `stok`, `gambar`) VALUES
-(9, 'martabak', 'makanan', 15000, 100, 'martabak.jpeg'),
 (10, 'Bakso', 'makanan', 10000, 178, 'dca21bf3-923c-486f-bc2e-a3dcd759b1df.jpeg'),
 (11, 'Boba brown sugar', 'minuman', 8000, 1000, 'download.jpg'),
 (12, 'Martabak manis', 'makanan', 15000, 5333, '044788300_1649730758-shutterstock_2023551554.webp'),
 (13, 'Topokki', 'makanan', 20000, 500, 'topokki-instan-halal_11zon.jpg'),
 (14, 'Ramen', 'makanan', 35000, 1000, 'ramen-jakarta.width-800.jpegquality-80.jpg'),
-(20, 'Seblak', 'makanan', 10000, 1200, '3991499229.jpg');
+(20, 'Seblak', 'makanan', 10000, 1200, '3991499229.jpg'),
+(21, 'caramel frappe', 'minuman', 30000, 500, 'Homemade-Caramel-Frappe-with-Chocolate-Chips-500x500.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Struktur dari tabel `meja`
+--
+
+CREATE TABLE `meja` (
+  `id` int(11) NOT NULL,
+  `nomor_meja` varchar(50) NOT NULL,
+  `status` enum('kosong','tersedia') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pesanan`
+--
+
+CREATE TABLE `pesanan` (
+  `id` int(11) NOT NULL,
+  `meja_id` int(100) NOT NULL,
+  `waiters_id` int(100) NOT NULL,
+  `tanggal` date NOT NULL,
+  `total` int(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `transaksi`
 --
 
 CREATE TABLE `transaksi` (
-  `id` int(11) NOT NULL,
+  `id_transaksi` int(11) NOT NULL,
   `masakan` varchar(125) NOT NULL,
   `no_meja` int(100) NOT NULL,
   `waiters` varchar(100) NOT NULL,
   `tanggal` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `waiters`
+--
+
+CREATE TABLE `waiters` (
+  `id` int(11) NOT NULL,
+  `nama_waiters` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -111,55 +161,103 @@ CREATE TABLE `transaksi` (
 --
 
 --
--- Indexes for table `admin`
+-- Indeks untuk tabel `admin`
 --
 ALTER TABLE `admin`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `list_pelanggan`
+-- Indeks untuk tabel `detail_pesanan`
+--
+ALTER TABLE `detail_pesanan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `list_pelanggan`
 --
 ALTER TABLE `list_pelanggan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `masakan`
+-- Indeks untuk tabel `masakan`
 --
 ALTER TABLE `masakan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `transaksi`
+-- Indeks untuk tabel `meja`
 --
-ALTER TABLE `transaksi`
+ALTER TABLE `meja`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `pesanan`
+--
+ALTER TABLE `pesanan`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indeks untuk tabel `transaksi`
+--
+ALTER TABLE `transaksi`
+  ADD PRIMARY KEY (`id_transaksi`);
+
+--
+-- Indeks untuk tabel `waiters`
+--
+ALTER TABLE `waiters`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT untuk tabel `admin`
 --
 ALTER TABLE `admin`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `list_pelanggan`
+-- AUTO_INCREMENT untuk tabel `detail_pesanan`
+--
+ALTER TABLE `detail_pesanan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `list_pelanggan`
 --
 ALTER TABLE `list_pelanggan`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
--- AUTO_INCREMENT for table `masakan`
+-- AUTO_INCREMENT untuk tabel `masakan`
 --
 ALTER TABLE `masakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT untuk tabel `meja`
+--
+ALTER TABLE `meja`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `pesanan`
+--
+ALTER TABLE `pesanan`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `transaksi`
 --
 ALTER TABLE `transaksi`
+  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `waiters`
+--
+ALTER TABLE `waiters`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 COMMIT;
 
