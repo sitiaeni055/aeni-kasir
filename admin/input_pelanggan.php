@@ -32,41 +32,41 @@
                 <label for="">Meja 1</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 1">
+                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 2">
                 <label for="">Meja 2</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 1">
+                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 3">
                 <label for="">Meja 3</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 1">
+                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 4">
                 <label for="">Meja 4</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 1">
+                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 5">
                 <label for="">Meja 5</label>
             </div>
             </div>
             <div class="col-4 d-inline-block">
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 1">
+                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 6">
                 <label for="">Meja 6</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 1">
+                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 7">
                 <label for="">Meja 7</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 1">
+                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 8">
                 <label for="">Meja 8</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 1">
+                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 9">
                 <label for="">Meja 9</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 1">
+                <input class="form-check-input" type="radio" name="meja" id="flexRadioDefault1" value="meja 10">
                 <label for="">Meja 10</label>
             </div>
             </div>

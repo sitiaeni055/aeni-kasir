@@ -72,7 +72,7 @@
 						include "list_pelanggan.php";
 						break;		
 					case 'produk':
-						include "produk.php";
+						include "product.php";
 						break;		
 					case 'keranjang_belanja':
 						include "keranjang_belanja.php";

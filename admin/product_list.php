@@ -14,7 +14,8 @@
     $sql = "SELECT * FROM masakan";
     $result = $conn->query($sql);
     $no = 1;
-    while ($row=$result->fetch_assoc()){
+    while     while ($row=$result->fetch_assoc()){
+        {
     ?>
         <tr>
             <td><?php echo $no++ ?></td>
