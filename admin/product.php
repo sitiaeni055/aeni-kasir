@@ -20,7 +20,7 @@
                             <h5>Rp<?php echo number_format($row['harga']); ?> </h5>
                             <input type="hidden" name="nama" value="<?php= $row['nama'] ?>">
                             <input type="hidden" name="harga" value="<?php= $row['harga'] ?>">
-                            <input type="number" name="quantity" value="1" class="form-control">
+                            <input type="number" name="quantity" value="0" class="form-control">
                             <a href="home.php?halaman=produk"><input type="submit" name="" class="btn btn-warning btn-block my-2" value="Tambah"></a>
                         </form>
                     </div>

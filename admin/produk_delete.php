@@ -1,9 +1,9 @@
 <?php
 
     $id = $_GET['id'];
-    $delete = $conn->query("DELETE FROM masakan WHERE id = '$id'");
+    $result = $conn->query("DELETE FROM masakan WHERE id = '$id'");
 
-    if($delete){
+    if($result){
         header('location:home.php?halaman=list-produk');
     }
 ?>
