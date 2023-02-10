@@ -21,7 +21,7 @@
                             <input type="hidden" name="nama" value="<?php= $row['nama'] ?>">
                             <input type="hidden" name="harga" value="<?php= $row['harga'] ?>">
                             <input type="number" name="quantity" value="1" class="form-control">
-                            <a href="home.php?halaman=produk=?id"><input type="submit" name="" class="btn btn-warning btn-block my-2" value="Tambah"></a>
+                            <a href="home.php?halaman=produk"><input type="submit" name="" class="btn btn-warning btn-block my-2" value="Tambah"></a>
                         </form>
                     </div>
                     <?php }
@@ -32,15 +32,7 @@
                 </div>
             </div>
             <div class="col-md-6 mt-5">
-                <?php
-                    $id_produk = $_GET['id'];
-                    if (isset($_SESSION['keranjang'][$id_produk])) {
-                        $_SESSION['keranjang'][$id_produk]+=1;
-                    }
-                    echo "<pre>";
-                    print_r($_SESSION);
-                    echo "</pre>";
-                ?>
+                
             </div>
         </div>
     </div>

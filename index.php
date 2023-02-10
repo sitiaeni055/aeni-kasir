@@ -10,11 +10,11 @@ include "bot.php";
             <form action="proses_login.php" method="post">
             <div class="mb-3 b">
                 <label for="exampleInputEmail1" class="form-label m-2">Username</label>
-                <input type="text" class="form-control " id="exampleInputEmail1" name="username" aria-describedby="emailHelp">
+                <input type="text" class="form-control " id="exampleInputEmail1" name="username" aria-describedby="emailHelp" required>
             </div>
             <div class="mb-3 b">
                 <label for="exampleInputPassword1" class="form-label m-2">Password</label>
-                <input type="password" class="form-control" id="exampleInputPassword1" name="password">
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" required>
             </div>
             <button type="submit" class="btn btn-light mt-3">Submit</button>
             </form>

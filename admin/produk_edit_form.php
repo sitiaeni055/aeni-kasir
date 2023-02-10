@@ -1,4 +1,5 @@
 <?php
+    include "../koneksi.php";
     $id = $_GET['id'];
     $edit = $conn->query("SELECT * FROM masakan WHERE id='$id'");
 ?>
