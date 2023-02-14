@@ -77,6 +77,9 @@
 					case 'keranjang_belanja':
 						include "keranjang_belanja.php";
 						break;		
+					case 'deletekeranjang':
+						include "keranjang_delete.php";
+						break;		
 					default:
 						echo "<center><h3>Maaf halaman tidak ditemukan</h3></center>";
 						break;

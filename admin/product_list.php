@@ -1,7 +1,7 @@
 <a href="home.php?halaman=tambah_produk"><button type="submit" class="btn btn-secondary" style=" margin-top: 50px; "><i class="fa-solid fa-plus"></i>Tambah Produk</button></a>
 <table class="table mt-4">
     <tr>
-        <td>Id</td>
+        <td>No</td>
         <td>Nama Produk</td>
         <td>Kategori</td>
         <td>Harga</td>
