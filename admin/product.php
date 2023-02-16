@@ -41,7 +41,7 @@
                     </thead>
                     <tbody>
                         <?php
-                         $no = 1;
+                        $no = 1;
                         ?>
                         <?php foreach ($_SESSION['keranjang'] as $id_menu => $jumlah): ?>
                         <?php
@@ -62,6 +62,35 @@
                         <?php endforeach ?>
                     </tbody>
                 </table>
+                <a href=""><button class="btn btn-success">Bayar</button></a>
+                <form action="" method="" class="form-horizontal ">
+                    <section class="base">
+                        <div class="form-group row my-4">
+                            <label for="nama" class="control-label col-sm-5">Nama Pelanggan</label>
+                            <div class="col-sm-7 float-right">
+                            <input type="text"  class="form-control" name="nama_produk" autofocus="" required="" id="nama"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-4">
+                            <label for="nama" class="control-label col-sm-5">No Meja</label>
+                            <div class="col-sm-7 float-right">
+                            <input type="text"  class="form-control" name="meja" autofocus="" required="" id="meja"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-4">
+                            <label for="nama" class="control-label col-sm-5">Waiters</label>
+                            <div class="col-sm-7 float-right">
+                            <input type="text"  class="form-control" name="waiters" autofocus="" required="" id="waiters"/>
+                            </div>
+                        </div>
+                        <div class="form-group row my-4">
+                            <label for="nama" class="control-label col-sm-5">Tanggal</label>
+                            <div class="col-sm-7 float-right">
+                            <input type="date"  class="form-control" name="waiters" autofocus="" required="" id="waiters"/>
+                            </div>
+                        </div>
+                    </section>
+                </form>
             </div>
         </div>
     </div>

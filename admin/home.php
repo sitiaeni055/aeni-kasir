@@ -80,6 +80,9 @@
 					case 'deletekeranjang':
 						include "keranjang_delete.php";
 						break;		
+					case 'bayar':
+						include "checkout.php";
+						break;		
 					default:
 						echo "<center><h3>Maaf halaman tidak ditemukan</h3></center>";
 						break;
