@@ -19,6 +19,11 @@
 				</li>
 				<li class="item" id="">
 					<a href="home.php?halaman=input-pelanggan" class="menu-btn">
+						<i class="fa-solid  fa-store"></i><span>Transaksi</span>
+					</a>
+				</li>
+				<li class="item" id="">
+					<a href="home.php?halaman=input-pelanggan" class="menu-btn">
 						<i class="fa-solid  fa-store"></i><span>Input Pelanggan</span>
 					</a>
 				</li>
