@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 10, 2023 at 08:24 AM
+-- Generation Time: Feb 17, 2023 at 08:02 AM
 -- Server version: 10.4.25-MariaDB
 -- PHP Version: 7.4.30
 
@@ -113,7 +113,7 @@ CREATE TABLE `masakan` (
 --
 
 INSERT INTO `masakan` (`id`, `nama`, `kategori`, `harga`, `stok`, `gambar`) VALUES
-(10, 'Bakso', 'makanan', 10000, 178, 'dca21bf3-923c-486f-bc2e-a3dcd759b1df.jpeg'),
+(10, 'Baksoo', 'makanan', 15000, 1781, 'dca21bf3-923c-486f-bc2e-a3dcd759b1df.jpeg'),
 (11, 'Boba brown sugar', 'minuman', 8000, 1000, 'download.jpg'),
 (12, 'Martabak manis', 'makanan', 15000, 5333, '044788300_1649730758-shutterstock_2023551554.webp'),
 (13, 'Topokki', 'makanan', 20000, 500, 'topokki-instan-halal_11zon.jpg'),
@@ -128,10 +128,18 @@ INSERT INTO `masakan` (`id`, `nama`, `kategori`, `harga`, `stok`, `gambar`) VALU
 --
 
 CREATE TABLE `meja` (
-  `id` int(11) NOT NULL,
+  `id_meja` int(11) NOT NULL,
   `nomor_meja` varchar(50) NOT NULL,
   `status` enum('kosong','tersedia') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `meja`
+--
+
+INSERT INTO `meja` (`id_meja`, `nomor_meja`, `status`) VALUES
+(1, 'Meja 01', 'kosong'),
+(2, 'Meja 02', 'kosong');
 
 -- --------------------------------------------------------
 
@@ -204,7 +212,7 @@ ALTER TABLE `masakan`
 -- Indexes for table `meja`
 --
 ALTER TABLE `meja`
-  ADD PRIMARY KEY (`id`);
+  ADD PRIMARY KEY (`id_meja`);
 
 --
 -- Indexes for table `pesanan`
@@ -256,7 +264,7 @@ ALTER TABLE `masakan`
 -- AUTO_INCREMENT for table `meja`
 --
 ALTER TABLE `meja`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_meja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pesanan`
