@@ -17,7 +17,7 @@
                     <a class="nav-link active" aria-current="page" href="#" id="home">Home</a>
                 </li>
                 <li class="nav-item" style="margin-right: 45px;">
-                    <a class="nav-link active"  aria-current="page" href="#" id="about">About</a>
+                    <a class="nav-link active"  aria-current="page" href="#about">About</a>
                 </li>
             </ul>      
                 <a href="login.php"><button class="btn btn-light" style="background: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"  type="submit">Login</button></a>
