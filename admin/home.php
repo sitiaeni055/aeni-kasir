@@ -14,15 +14,15 @@
 			</div>
 			<div class="sidebar-menu" id="body">
 				<li class="item">
-					<a href="home.php?halaman=list-produk" class="menu-btn"><i class='bx bxs-grid' ></i><span>Dashboard</span> </a>
+					<a href="home.php?halaman=list-produk" class="menu-btn"><i class='bx bxs-grid' ></i><span>Daftar Menu</span> </a>
 
 				</li>
 				<li class="item" id="">
-					<a href="home.php?halaman=input-pelanggan" class="menu-btn">
+					<a href="home.php?halaman=produk" class="menu-btn">
 						<i class="fa-solid  fa-store"></i><span>Transaksi</span>
 					</a>
 				</li>
-				<li class="item" id="">
+				<!-- <li class="item" id="">
 					<a href="home.php?halaman=input-pelanggan" class="menu-btn">
 						<i class="fa-solid  fa-store"></i><span>Input Pelanggan</span>
 					</a>
@@ -31,7 +31,7 @@
 					<a href="home.php?halaman=list-pelanggan" class="menu-btn">
 						<i class='bx bx-receipt' ></i><span>List Pelanggan</span>
 					</a>
-				</li>
+				</li> -->
 				<li class="item" id="">
 					<a href="" class="menu-btn">
 						<i class='bx bx-receipt' ></i><span>Laporan</span>

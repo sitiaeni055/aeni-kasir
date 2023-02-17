@@ -5,7 +5,7 @@ include "bot.php";
 
 <div class="login">
     <h2 class="text-center mt-5">Halo, Selamat Pagi!</h2>
-    <div class="container col-4 mt-5 a p-3" style="background: #AAE3E2;">
+    <div class="container col-4 mt-5 a p-3" style="background: #EEE9DA;">
             
             <form action="proses_login.php" method="post">
             <div class="mb-3 b">

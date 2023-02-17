@@ -20,10 +20,9 @@
                             <input type="hidden" name="harga" value="<?php echo $row['harga'] ?>">
                             <a href="keranjang_belanja.php?id=<?php echo $row['id'] ?>"> <button class="btn btn-primary">  Tambah</button></a>
                     </div>
-                    <?php }
-                
-                
-                ?>
+                    <?php
+                    }              
+                    ?>
                     </div>
                 </div>
             </div>
@@ -62,7 +61,10 @@
                         <?php endforeach ?>
                     </tbody>
                 </table>
-                <a href=""><button class="btn btn-success">Bayar</button></a>
+                    <?php
+                        include "../koneksi.php";
+                        $total = $conn->query(" SELECT SUM(stok) AS total_stok FROM tb_barang;");
+                    ?>
                 <form action="" method="" class="form-horizontal ">
                     <section class="base">
                         <div class="form-group row my-4">
@@ -89,6 +91,7 @@
                             <input type="date"  class="form-control" name="waiters" autofocus="" required="" id="waiters"/>
                             </div>
                         </div>
+                        <a href="checkout.php?id=<?php echo $row['id']?>"><button class="btn btn-success">Bayar</button></a>
                     </section>
                 </form>
             </div>

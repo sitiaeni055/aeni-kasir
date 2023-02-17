@@ -68,7 +68,7 @@
                 <div class="form-group row my-4">
                     <label for="nama" class="control-label col-sm-5">Tanggal</label>
                     <div class="col-sm-7 float-right">
-                        <input type="date"  class="form-control" name="waiters" autofocus="" required="" id="waiters"/>
+                        <input type="date"  class="form-control" name="tanggal" autofocus="" required="" id="tanggal"/>
                     </div>
                 </div>
             </section>
