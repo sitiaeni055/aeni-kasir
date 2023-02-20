@@ -14,7 +14,8 @@
         </thead>
         <tbody>
         <?php
-             $no = 1;
+            $no = 1;
+            $totalbayar = 0;
         ?>
         <?php foreach ($_SESSION['keranjang'] as $id_menu => $jumlah): ?>
         <?php
@@ -29,15 +30,22 @@
                 <td><?php echo $jumlah;?></td>
                 <td>Rp.<?php echo number_format($Subharga);?></td>  
             </tr>
+        <?php $totalbayar+=$Subharga; ?>
         <?php endforeach ?>
         </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="4">Total Bayar</td>
+                <td>Rp.<?php echo number_format($totalbayar) ?></td>
+            </tr>
+        </tfoot>
     </table>
         <form action="" method="post" class="form-horizontal ">
             <section class="base">
                 <div class="form-group row my-4">
                     <label for="nama" class="control-label col-sm-5">Nama Pelanggan</label>
                     <div class="col-sm-7 float-right">
-                        <input type="text"  class="form-control" name="nama_produk" autofocus="" required="" id="nama" />
+                        <input type="text"  class="form-control" name="nama_pelanggan" autofocus="" required=""  value="<?php echo $_SESSION["list_pelanggan"]['nama_pelanggan'] ?>"/>
                     </div>
                 </div>
                 <div class="form-group row my-4">
@@ -47,7 +55,7 @@
                             <option selected>Meja</option>
                             <?php 
                             $sql = $conn->query("SELECT * FROM meja");
-                            while ($sql = $ambil->fetch_assoc()) {
+                            while ($meja = $sql->fetch_assoc()) {
                             ?>
                             <option value="<?php echo $meja["id_meja"] ?>">
                                 <?php echo $meja['nomor_meja']?> -
@@ -62,7 +70,19 @@
                 <div class="form-group row my-4">
                     <label for="nama" class="control-label col-sm-5">Waiters</label>
                     <div class="col-sm-7 float-right">
-                        <input type="text"  class="form-control" name="waiters" autofocus="" required="" id="waiters"/>
+                    <select class="form-select" aria-label="Default select example" name="id_meja">
+                            <option selected>Nama Waiters</option>
+                            <?php 
+                            $sql = $conn->query("SELECT * FROM waiters");
+                            while ($waiters = $sql->fetch_assoc()) {
+                            ?>
+                            <option value="<?php echo $waiters["id_waiters"] ?>">
+                                <?php echo $waiters['nama_waiters']?> 
+                            </option>
+                            <?php
+                            }
+                            ?>
+                        </select>
                     </div>
                 </div>
                 <div class="form-group row my-4">
@@ -71,6 +91,16 @@
                         <input type="date"  class="form-control" name="tanggal" autofocus="" required="" id="tanggal"/>
                     </div>
                 </div>
+                <button class="btn btn-light" name="checkout">Bayar</button>
             </section>
         </form>
+        <?php
+        if (isset($_POST["checkout"])) {
+            $id_pelanggan = $_SESSION["list_pelanggan"]["id_pelanggan"];
+            $meja = $_POST["id_meja"];
+            $tanggal = date("Y-m-d");
+
+            $conn->query("INSERT INTO transaksi(id_transaksi")
+        }
+        ?>
 </div>
