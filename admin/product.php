@@ -8,7 +8,7 @@
 
                     
                 <?php
-                    $query = "SELECT * FROM menu";
+                    $query = "SELECT * FROM masakan";
                     $result = $conn->query($query);
 
                     while ($row=$result->fetch_assoc()){
@@ -44,7 +44,7 @@
                         ?>
                         <?php foreach ($_SESSION['keranjang'] as $id_menu => $jumlah): ?>
                         <?php
-                            $ambil = $conn->query("SELECT * FROM menu WHERE id = '$id_menu'");
+                            $ambil = $conn->query("SELECT * FROM masakan WHERE id = '$id_menu'");
                             $pecah = $ambil->fetch_assoc();
                             $Subharga = $pecah['harga']*$jumlah;
                         ?>

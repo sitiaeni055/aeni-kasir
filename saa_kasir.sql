@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 17, 2023 at 08:02 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Generation Time: Feb 21, 2023 at 01:37 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,218 +18,180 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `saa_kasir`
+-- Database: `aeni_kasir`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin`
+-- Table structure for table `kategoris`
 --
 
-CREATE TABLE `admin` (
+CREATE TABLE `kategoris` (
   `id` int(11) NOT NULL,
-  `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL,
-  `role` enum('admin','petugas') NOT NULL
+  `nama` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `admin`
+-- Dumping data for table `kategoris`
 --
 
-INSERT INTO `admin` (`id`, `username`, `password`, `role`) VALUES
-(1, 'admin', '1844156d4166d94387f1a4ad031ca5fa', 'admin'),
-(2, 'petugas', '07bef86a8c7c2fe49683fd0e861a3352', 'petugas');
+INSERT INTO `kategoris` (`id`, `nama`) VALUES
+(1, 'Minuman'),
+(2, 'Makanan');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `detail_pesanan`
+-- Table structure for table `menus`
 --
 
-CREATE TABLE `detail_pesanan` (
-  `id` int(11) NOT NULL,
-  `pesanan_id` int(100) NOT NULL,
-  `produk_id` int(100) NOT NULL,
-  `jumlah` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `keranjang`
---
-
-CREATE TABLE `keranjang` (
-  `id_pelanggan` int(11) NOT NULL,
-  `id_masakan` int(11) NOT NULL,
-  `nama_pelanggan` varchar(100) NOT NULL,
-  `meja` int(11) NOT NULL,
-  `waiters` varchar(100) NOT NULL,
-  `nama_masakan` varchar(100) NOT NULL,
-  `harga` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `list_pelanggan`
---
-
-CREATE TABLE `list_pelanggan` (
-  `id` int(11) NOT NULL,
-  `nama_pelanggan` varchar(100) NOT NULL,
-  `meja` varchar(100) NOT NULL,
-  `waiters` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `list_pelanggan`
---
-
-INSERT INTO `list_pelanggan` (`id`, `nama_pelanggan`, `meja`, `waiters`) VALUES
-(1, 'nisa', 'meja 1', 'mang ujang'),
-(6, 'fina', 'meja 2', 'mang supri'),
-(7, 'dini', 'meja 3', 'mang ucup');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `masakan`
---
-
-CREATE TABLE `masakan` (
+CREATE TABLE `menus` (
   `id` int(11) NOT NULL,
   `nama` varchar(100) NOT NULL,
-  `kategori` varchar(100) NOT NULL,
-  `harga` float NOT NULL,
-  `stok` int(11) NOT NULL,
-  `gambar` text NOT NULL
+  `harga` int(100) NOT NULL,
+  `gambar` text NOT NULL,
+  `kategori_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `masakan`
---
-
-INSERT INTO `masakan` (`id`, `nama`, `kategori`, `harga`, `stok`, `gambar`) VALUES
-(10, 'Baksoo', 'makanan', 15000, 1781, 'dca21bf3-923c-486f-bc2e-a3dcd759b1df.jpeg'),
-(11, 'Boba brown sugar', 'minuman', 8000, 1000, 'download.jpg'),
-(12, 'Martabak manis', 'makanan', 15000, 5333, '044788300_1649730758-shutterstock_2023551554.webp'),
-(13, 'Topokki', 'makanan', 20000, 500, 'topokki-instan-halal_11zon.jpg'),
-(14, 'Ramen', 'makanan', 35000, 1000, 'ramen-jakarta.width-800.jpegquality-80.jpg'),
-(20, 'Seblak', 'makanan', 10000, 1200, '3991499229.jpg'),
-(21, 'caramel frappe', 'minuman', 300000, 50000, 'Homemade-Caramel-Frappe-with-Chocolate-Chips-500x500.png');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `meja`
+-- Table structure for table `pelayans`
 --
 
-CREATE TABLE `meja` (
-  `id_meja` int(11) NOT NULL,
-  `nomor_meja` varchar(50) NOT NULL,
-  `status` enum('kosong','tersedia') NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `meja`
---
-
-INSERT INTO `meja` (`id_meja`, `nomor_meja`, `status`) VALUES
-(1, 'Meja 01', 'kosong'),
-(2, 'Meja 02', 'kosong');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pesanan`
---
-
-CREATE TABLE `pesanan` (
+CREATE TABLE `pelayans` (
   `id` int(11) NOT NULL,
-  `meja_id` int(100) NOT NULL,
-  `waiters_id` int(100) NOT NULL,
+  `nama` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pelayans`
+--
+
+INSERT INTO `pelayans` (`id`, `nama`) VALUES
+(1, 'Tae Chun'),
+(2, 'Jung Kuk');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `pesanans`
+--
+
+CREATE TABLE `pesanans` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `table_id` int(11) NOT NULL,
+  `pelayan_id` int(11) NOT NULL,
   `tanggal` date NOT NULL,
-  `total` int(100) NOT NULL
+  `total` int(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `transaksi`
+-- Table structure for table `pesanan_details`
 --
 
-CREATE TABLE `transaksi` (
-  `id_transaksi` int(11) NOT NULL,
-  `masakan` varchar(125) NOT NULL,
-  `no_meja` int(100) NOT NULL,
-  `waiters` varchar(100) NOT NULL,
-  `tanggal` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `waiters`
---
-
-CREATE TABLE `waiters` (
+CREATE TABLE `pesanan_details` (
   `id` int(11) NOT NULL,
-  `nama_waiters` int(100) NOT NULL
+  `pesanan_id` int(11) NOT NULL,
+  `menu_id` int(11) NOT NULL,
+  `jumlah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tables`
+--
+
+CREATE TABLE `tables` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `status` enum('kosong','terisi') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `tables`
+--
+
+INSERT INTO `tables` (`id`, `nama`, `status`) VALUES
+(1, '001', 'kosong'),
+(2, '002', 'kosong');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` text NOT NULL,
+  `role` enum('admin','kasir') NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`id`, `nama`, `username`, `password`, `role`) VALUES
+(1, 'Nabilah', 'admin', '21232f297a57a5a743894a0e4a801fc3', 'admin'),
+(2, 'Melodi', 'kasir', 'c7911af3adbd12a035b289556d96470a', 'kasir');
 
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `admin`
+-- Indexes for table `kategoris`
 --
-ALTER TABLE `admin`
+ALTER TABLE `kategoris`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `detail_pesanan`
+-- Indexes for table `menus`
 --
-ALTER TABLE `detail_pesanan`
+ALTER TABLE `menus`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `kategori_id` (`kategori_id`);
+
+--
+-- Indexes for table `pelayans`
+--
+ALTER TABLE `pelayans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `list_pelanggan`
+-- Indexes for table `pesanans`
 --
-ALTER TABLE `list_pelanggan`
+ALTER TABLE `pesanans`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `user_id` (`user_id`,`table_id`,`pelayan_id`),
+  ADD KEY `pelayan_id` (`pelayan_id`),
+  ADD KEY `table_id` (`table_id`);
+
+--
+-- Indexes for table `pesanan_details`
+--
+ALTER TABLE `pesanan_details`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `pesanan_id` (`pesanan_id`,`menu_id`);
+
+--
+-- Indexes for table `tables`
+--
+ALTER TABLE `tables`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `masakan`
+-- Indexes for table `users`
 --
-ALTER TABLE `masakan`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `meja`
---
-ALTER TABLE `meja`
-  ADD PRIMARY KEY (`id_meja`);
-
---
--- Indexes for table `pesanan`
---
-ALTER TABLE `pesanan`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `transaksi`
---
-ALTER TABLE `transaksi`
-  ADD PRIMARY KEY (`id_transaksi`);
-
---
--- Indexes for table `waiters`
---
-ALTER TABLE `waiters`
+ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -237,52 +199,64 @@ ALTER TABLE `waiters`
 --
 
 --
--- AUTO_INCREMENT for table `admin`
+-- AUTO_INCREMENT for table `kategoris`
 --
-ALTER TABLE `admin`
+ALTER TABLE `kategoris`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `detail_pesanan`
+-- AUTO_INCREMENT for table `menus`
 --
-ALTER TABLE `detail_pesanan`
+ALTER TABLE `menus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `list_pelanggan`
+-- AUTO_INCREMENT for table `pelayans`
 --
-ALTER TABLE `list_pelanggan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+ALTER TABLE `pelayans`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `masakan`
+-- AUTO_INCREMENT for table `pesanans`
 --
-ALTER TABLE `masakan`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
-
---
--- AUTO_INCREMENT for table `meja`
---
-ALTER TABLE `meja`
-  MODIFY `id_meja` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
-
---
--- AUTO_INCREMENT for table `pesanan`
---
-ALTER TABLE `pesanan`
+ALTER TABLE `pesanans`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `transaksi`
+-- AUTO_INCREMENT for table `pesanan_details`
 --
-ALTER TABLE `transaksi`
-  MODIFY `id_transaksi` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `pesanan_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `waiters`
+-- AUTO_INCREMENT for table `tables`
 --
-ALTER TABLE `waiters`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `tables`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT for table `users`
+--
+ALTER TABLE `users`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `menus`
+--
+ALTER TABLE `menus`
+  ADD CONSTRAINT `menus_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `kategoris` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Constraints for table `pesanans`
+--
+ALTER TABLE `pesanans`
+  ADD CONSTRAINT `pesanans_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pesanans_ibfk_2` FOREIGN KEY (`pelayan_id`) REFERENCES `pelayans` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `pesanans_ibfk_3` FOREIGN KEY (`table_id`) REFERENCES `tables` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

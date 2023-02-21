@@ -22,16 +22,6 @@
 						<i class="fa-solid  fa-store"></i><span>Transaksi</span>
 					</a>
 				</li>
-				<!-- <li class="item" id="">
-					<a href="home.php?halaman=input-pelanggan" class="menu-btn">
-						<i class="fa-solid  fa-store"></i><span>Input Pelanggan</span>
-					</a>
-				</li>
-				<li class="item" id="">
-					<a href="home.php?halaman=list-pelanggan" class="menu-btn">
-						<i class='bx bx-receipt' ></i><span>List Pelanggan</span>
-					</a>
-				</li> -->
 				<li class="item" id="">
 					<a href="" class="menu-btn">
 						<i class='bx bx-receipt' ></i><span>Laporan</span>
@@ -58,11 +48,11 @@
 				$page = $_GET['halaman'];
 
 				switch ($page) {
-					case 'tambah_produk':
-						include "produk_add_form.php";
+					case 'menu-add':
+						include "menu_add.php";
 						break;
-					case 'list-produk':
-						include "product_list.php";
+					case 'menu':
+						include "menu.php";
 						break;
 					case 'delete':
 						include "produk_delete.php";
@@ -93,7 +83,7 @@
 						break;
 				}
 			}else{
-				include "product_list.php";
+				include "menu.php";
 			}
 			?>
 		</div>
