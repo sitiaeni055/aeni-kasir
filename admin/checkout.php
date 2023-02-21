@@ -19,7 +19,7 @@
         ?>
         <?php foreach ($_SESSION['keranjang'] as $id_menu => $jumlah): ?>
         <?php
-            $ambil = $conn->query("SELECT * FROM masakan WHERE id = '$id_menu'");
+            $ambil = $conn->query("SELECT * FROM menu WHERE id = '$id_menu'");
             $pecah = $ambil->fetch_assoc();
             $Subharga = $pecah['harga']*$jumlah;
         ?>
@@ -58,9 +58,7 @@
                             while ($meja = $sql->fetch_assoc()) {
                             ?>
                             <option value="<?php echo $meja["id_meja"] ?>">
-                                <?php echo $meja['nomor_meja']?> -
-                                <?php echo $meja['status']?> 
-                            </option>
+                                <?php echo $meja['nomor_meja']?>    
                             <?php
                             }
                             ?>
@@ -99,8 +97,8 @@
             $id_pelanggan = $_SESSION["list_pelanggan"]["id_pelanggan"];
             $meja = $_POST["id_meja"];
             $tanggal = date("Y-m-d");
-
-            $conn->query("INSERT INTO transaksi(id_transaksi")
         }
+            $conn->query("INSERT INTO transaksi(id_transaksi")
+       
         ?>
 </div>

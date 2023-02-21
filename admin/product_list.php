@@ -11,7 +11,7 @@
     </tr>
 
     <?php
-    $sql = "SELECT * FROM masakan";
+    $sql = "SELECT * FROM menu";
     $result = $conn->query($sql);
     $no = 1;
     while ($row=$result->fetch_assoc()){

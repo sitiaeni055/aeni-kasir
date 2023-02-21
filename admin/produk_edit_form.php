@@ -2,7 +2,7 @@
 <?php
     include "../koneksi.php";
     $id = $_GET['id'];
-    $sql ="SELECT * FROM masakan WHERE id='$id'";
+    $sql ="SELECT * FROM menu WHERE id='$id'";
     $id = $_GET['id'];
     $edit = $conn->query($sql);
 ?>

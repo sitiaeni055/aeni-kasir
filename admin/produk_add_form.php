@@ -8,7 +8,7 @@
         $stok = $_POST['stok'];
         $nama_gambar = $_FILES['gambar']['name'];
         $file_tmp = $_FILES['gambar']['tmp_name'];
-        $add = $conn->query("INSERT INTO masakan VALUE ('', '$nama', '$kategori', '$harga', '$stok', '$nama_gambar')");
+        $add = $conn->query("INSERT INTO menu VALUE ('', '$nama', '$kategori', '$harga', '$stok', '$nama_gambar')");
 
         if($add){
             move_uploaded_file($file_tmp, '../image/'.$nama_gambar);

@@ -8,7 +8,7 @@
 
                     
                 <?php
-                    $query = "SELECT * FROM masakan";
+                    $query = "SELECT * FROM menu";
                     $result = $conn->query($query);
 
                     while ($row=$result->fetch_assoc()){
@@ -44,7 +44,7 @@
                         ?>
                         <?php foreach ($_SESSION['keranjang'] as $id_menu => $jumlah): ?>
                         <?php
-                            $ambil = $conn->query("SELECT * FROM masakan WHERE id = '$id_menu'");
+                            $ambil = $conn->query("SELECT * FROM menu WHERE id = '$id_menu'");
                             $pecah = $ambil->fetch_assoc();
                             $Subharga = $pecah['harga']*$jumlah;
                         ?>
@@ -60,11 +60,7 @@
                         </tr>
                         <?php endforeach ?>
                     </tbody>
-                </table>
-                    <?php
-                        include "../koneksi.php";
-                        $total = $conn->query(" SELECT SUM(stok) AS total_stok FROM tb_barang;");
-                    ?>
+                </table>   
                 <form action="" method="" class="form-horizontal ">
                     <section class="base">
                         <div class="form-group row my-4">
