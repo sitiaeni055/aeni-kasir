@@ -5,7 +5,7 @@ include "bot.php";
 
 <div class="login">
     <h2 class="text-center mt-5">Halo, Selamat Pagi!</h2>
-    <div class="container col-4 mt-5 a p-3" style="background: #EEE9DA;">
+    <div class="container col-4 mt-5 a p-3" style="background: #c3a0a0;">
 
             <!-- PESAN ERROR LOGIN DAN LOGOUT -->
              <?php if(isset($_GET["pesan"])) : ?>
