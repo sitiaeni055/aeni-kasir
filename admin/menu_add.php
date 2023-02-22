@@ -1,12 +1,12 @@
 <?php
 if(isset($_POST['add'])){
-    $nama = $_POST['nama_produk'];
+    $nama = $_POST['nama_menu'];
     $kategori = $_POST['kategori'];
     $harga = $_POST['harga'];
     $stok = $_POST['stok'];
     $nama_gambar = $_FILES['gambar']['name'];
     $file_tmp = $_FILES['gambar']['tmp_name'];
-    $add = $conn->query("INSERT INTO menus VALUE ('', '$nama', '$harga', '$nama_gambar', '$kategori')");
+    $add = $conn->query("INSERT INTO menus VALUE ('', '$nama', '$harga', '$stok', '$nama_gambar', '$kategori')");
 
     if($add){
         move_uploaded_file($file_tmp, '../image/'.$nama_gambar);
@@ -19,7 +19,7 @@ if(isset($_POST['add'])){
     <section class="base">
         <div class="my-4">
             <label>Nama Produk</label>
-            <input type="text" class="form-control" name="nama_produk" autofocus="" required="" />
+            <input type="text" class="form-control" name="nama_menu" autofocus="" required="" />
         </div>
         <div class="my-4">
             <label>Kategori</label>
@@ -34,6 +34,10 @@ if(isset($_POST['add'])){
         <div class="my-4">
             <label>Harga</label>
             <input type="text" class="form-control" name="harga" required=""  />
+        </div>
+        <div class="my-4">
+            <label>Stok</label>
+            <input type="text" class="form-control" name="stok" required=""  />
         </div>
         <div class="my-4"> 
             <label>Poto menu</label>

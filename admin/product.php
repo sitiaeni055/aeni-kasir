@@ -8,14 +8,14 @@
 
                     
                 <?php
-                    $query = "SELECT * FROM masakan";
+                    $query = "SELECT * FROM menus";
                     $result = $conn->query($query);
 
                     while ($row=$result->fetch_assoc()){
                 ?>
                     <div class="card col-md-3 py-2 mb-2 p-2 mx-1">
                             <img src="../image/<?= $row['gambar'] ?>" alt="" width="100" height="80">
-                            <h6> <?php echo $row['nama']; ?> </h6>
+                            <h6> <?php echo $row['nama_menu']; ?> </h6>
                             <h5>Rp<?php echo number_format($row['harga']); ?> </h5>
                             <input type="hidden" name="harga" value="<?php echo $row['harga'] ?>">
                             <a href="keranjang_belanja.php?id=<?php echo $row['id'] ?>"> <button class="btn btn-primary">  Tambah</button></a>
@@ -44,13 +44,13 @@
                         ?>
                         <?php foreach ($_SESSION['keranjang'] as $id_menu => $jumlah): ?>
                         <?php
-                            $ambil = $conn->query("SELECT * FROM masakan WHERE id = '$id_menu'");
+                            $ambil = $conn->query("SELECT * FROM menus WHERE id = '$id_menu'");
                             $pecah = $ambil->fetch_assoc();
                             $Subharga = $pecah['harga']*$jumlah;
                         ?>
                         <tr>
                             <td><?php echo $no++ ?></td>
-                            <td><?php echo $pecah['nama'];?></td>
+                            <td><?php echo $pecah['nama_menu'];?></td>
                             <td>Rp.<?php echo number_format ($pecah['harga']);?></td>
                             <td><?php echo $jumlah;?></td>
                             <td>Rp.<?php echo number_format($Subharga);?></td>

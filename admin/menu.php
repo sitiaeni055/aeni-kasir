@@ -11,6 +11,7 @@
         <td>Nama Produk</td>
         <td>Kategori</td>
         <td>Harga</td>
+        <td>Stok</td>
         <td>Gambar</td>
         <td>Aksi</td>
     </tr>
@@ -26,9 +27,10 @@
     ?>
         <tr>
             <td><?php echo $no++ ?></td>
+            <td><?php echo $row["nama_menu"]?></td>
             <td><?php echo $row["nama"]?></td>
-            <td><?php echo $row["nama_kategori"]?></td>
             <td><?php echo $row["harga"]?></td>
+            <td><?php echo $row["stok"]?></td>
             <td><img width="70" src="../image/<?php echo $row["gambar"]?>" alt=""></td>
             <td>
                 <a href="home.php?id=<?php echo $row['id']?>&halaman=delete"><button type="submit" class="btn btn-danger">Delete</button></a>

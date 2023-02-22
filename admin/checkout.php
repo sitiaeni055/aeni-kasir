@@ -19,13 +19,13 @@
         ?>
         <?php foreach ($_SESSION['keranjang'] as $id_menu => $jumlah): ?>
         <?php
-            $ambil = $conn->query("SELECT * FROM menu WHERE id = '$id_menu'");
+            $ambil = $conn->query("SELECT * FROM menus WHERE id = '$id_menu'");
             $pecah = $ambil->fetch_assoc();
             $Subharga = $pecah['harga']*$jumlah;
         ?>
             <tr>
                 <td><?php echo $no++ ?></td>
-                <td><?php echo $pecah['nama'];?></td>
+                <td><?php echo $pecah['nama_menu'];?></td>
                 <td>Rp.<?php echo number_format ($pecah['harga']);?></td>
                 <td><?php echo $jumlah;?></td>
                 <td>Rp.<?php echo number_format($Subharga);?></td>  

@@ -11,7 +11,7 @@ include "bot.php";
              <?php if(isset($_GET["pesan"])) : ?>
                 <?php if($_GET['pesan'] == "gagal")  : ?>
                     <div class="alert alert-warning alert-dismissible text-center" role="alert">
-                        <strong>Maaf Username dan passwor anda salah !!</strong>
+                        <strong>Maaf Username dan password anda salah !!</strong>
                     </div>
                 <?php else : ?>
                     <div class="alert alert-warning alert-dismissible text-center" role="alert">

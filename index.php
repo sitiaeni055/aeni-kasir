@@ -19,12 +19,16 @@
                 <li class="nav-item" style="margin-right: 45px;">
                     <a class="nav-link active"  aria-current="page" href="#about">About</a>
                 </li>
+                <li class="nav-item" style="margin-right: 45px;">
+                    <a class="nav-link active"  aria-current="page" href="#menu">Menu</a>
+                </li>
             </ul>      
                 <a href="login.php"><button class="btn btn-light" style="background: #fff; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);"  type="submit">Login</button></a>
         </div>
     </div>
 </nav>
-<div class="container mt-5" id="home">
+<section  class="container mt-5" id="home">
+<div>
     <div class="row mt-5">
         <div class="col-md-12 text-center mt-5">
             <h2 class=" mt-5 p-2">Aplikasi Kasir Restoran</h2>
@@ -47,4 +51,64 @@
     </div>
     </div>
 </div>
-
+</section>
+<section class="container" style="background: #EEE9DA; max-height: 500px;">
+    <div class="row">
+        <div class="col-6">
+            <h2>Menu</h2>
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 10rem;">
+                        <img src="image/topokki-instan-halal_11zon.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <a href="#" class="btn btn-primary">Go</a>
+                        </div>
+                    </div>
+                    <div class="card" style="width: 10rem;">
+                        <img src="image/topokki-instan-halal_11zon.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <a href="#" class="btn btn-primary">Go</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                <div class="card" style="width: 10rem;">
+                        <img src="image/topokki-instan-halal_11zon.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <a href="#" class="btn btn-primary">Go</a>
+                        </div>
+                    </div>
+                <div class="card" style="width: 10rem;">
+                        <img src="image/topokki-instan-halal_11zon.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <a href="#" class="btn btn-primary">Go</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                <div class="card" style="width: 10rem;">
+                        <img src="image/topokki-instan-halal_11zon.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <a href="#" class="btn btn-primary">Go</a>
+                        </div>
+                    </div>
+                <div class="card" style="width: 10rem;">
+                        <img src="image/topokki-instan-halal_11zon.jpg" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Card title</h5>
+                            <a href="#" class="btn btn-primary">Go</a>
+                        </div>
+                    </div>
+                </div>        
+            </div>
+        </div>
+        <div class="col-6">
+            
+        </div>
+    </div>
+</section>

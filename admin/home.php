@@ -1,9 +1,7 @@
 <?php 
 	session_start();
 	include "../koneksi.php";
-	if($_SESSION['status']!="login"){
-		header("location:index.php?pesan=belum_login");
-	}
+	
 	include "../bot.php";
 ?>
 <link rel="stylesheet" href="../style.css">
@@ -14,7 +12,7 @@
 			</div>
 			<div class="sidebar-menu" id="body">
 				<li class="item">
-					<a href="home.php?halaman=list-produk" class="menu-btn"><i class='bx bxs-grid' ></i><span>Daftar Menu</span> </a>
+					<a href="home.php?halaman=menu" class="menu-btn"><i class='bx bxs-grid' ></i><span>Daftar Menu</span> </a>
 
 				</li>
 				<li class="item" id="">
@@ -55,10 +53,10 @@
 						include "menu.php";
 						break;
 					case 'delete':
-						include "produk_delete.php";
+						include "menu_delete.php";
 						break;
 					case 'edit':
-						include "produk_edit_form.php";
+						include "menu_edit_form.php";
 						break;		
 					case 'input-pelanggan':
 						include "input_pelanggan.php";
