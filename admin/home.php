@@ -20,6 +20,17 @@
 						<i class="fa-solid  fa-store"></i><span>Transaksi</span>
 					</a>
 				</li>
+				<li class="item" id="orders">
+					<a href="" class="menu-btn">
+						<i class="fa-solid  fa-store"></i><span>Dropdown<i class="fas fa-chevron-down drop-down"></i></span>
+					</a>
+            
+					<div class="sub-menu">
+						<a href=""><span>agdkja</span></a>
+						<a href=""><span>adjhsf</span></a>
+						<a href=""><span>fsfa</span></a>
+					</div>
+				</li>
 				<li class="item" id="">
 					<a href="" class="menu-btn">
 						<i class='bx bx-receipt' ></i><span>Laporan</span>
