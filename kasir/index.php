@@ -11,10 +11,6 @@
 			    	<h2><span>Oresto</span></h2>
 			</div>
 			<div class="sidebar-menu" id="body">
-				<li class="item">
-					<a href="home.php?halaman=list-produk" class="menu-btn"><i class='bx bxs-grid' ></i><span>Daftar Menu</span> </a>
-
-				</li>
 				<li class="item" id="">
 					<a href="home.php?halaman=produk" class="menu-btn">
 						<i class="fa-solid  fa-store"></i><span>Transaksi</span>
