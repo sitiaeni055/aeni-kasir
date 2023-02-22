@@ -21,14 +21,14 @@
 					</a>
 				</li>
 				<li class="item" id="orders">
-					<a href="" class="menu-btn">
+					<a href="#orders" class="menu-btn">
 						<i class="fa-solid  fa-store"></i><span>Dropdown<i class="fas fa-chevron-down drop-down"></i></span>
 					</a>
             
 					<div class="sub-menu">
-						<a href=""><span>agdkja</span></a>
-						<a href=""><span>adjhsf</span></a>
-						<a href=""><span>fsfa</span></a>
+						<a href=""><i class="las la-apple-alt"  style="font-size: 25px;"></i><span>Dropdown</span></a>
+						<a href=""><i class='bx bx-cake' style="font-size: 25px;"></i><span>Dropdown</span></a>
+						<a href=""><i class="las la-coffee"  style="font-size: 25px;"></i><span>Dropdown</span></a>
 					</div>
 				</li>
 				<li class="item" id="">
