@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 21, 2023 at 01:37 PM
+-- Generation Time: Feb 22, 2023 at 02:20 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -48,7 +48,7 @@ INSERT INTO `kategoris` (`id`, `nama`) VALUES
 
 CREATE TABLE `menus` (
   `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
+  `nama_menu` varchar(100) NOT NULL,
   `harga` int(100) NOT NULL,
   `gambar` text NOT NULL,
   `kategori_id` int(11) NOT NULL
