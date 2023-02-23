@@ -45,20 +45,20 @@
                 <div class="form-group row my-4">
                     <label for="nama" class="control-label col-sm-5">Nama Pelanggan</label>
                     <div class="col-sm-7 float-right">
-                        <input type="text"  class="form-control" name="nama_pelanggan" autofocus="" required=""  value="<?php echo $_SESSION["list_pelanggan"]['nama_pelanggan'] ?>"/>
+                        <input type="text"  class="form-control" name="nama_pelanggan" autofocus="" required=""/>
                     </div>
                 </div>
                 <div class="form-group row my-4">
                     <label for="nama" class="control-label col-sm-5">No Meja</label>
                     <div class="col-sm-7 float-right">
-                        <select class="form-select" aria-label="Default select example" name="id_meja">
+                        <select class="form-select" aria-label="Default select example" name="id">
                             <option selected>Meja</option>
                             <?php 
-                            $sql = $conn->query("SELECT * FROM meja");
+                            $sql = $conn->query("SELECT * FROM tables");
                             while ($meja = $sql->fetch_assoc()) {
                             ?>
-                            <option value="<?php echo $meja["id_meja"] ?>">
-                                <?php echo $meja['nomor_meja']?>    
+                            <option value="<?php echo $meja["id"] ?>">
+                                <?php echo $meja['nama']?>    
                             <?php
                             }
                             ?>
@@ -68,14 +68,14 @@
                 <div class="form-group row my-4">
                     <label for="nama" class="control-label col-sm-5">Waiters</label>
                     <div class="col-sm-7 float-right">
-                    <select class="form-select" aria-label="Default select example" name="id_meja">
+                    <select class="form-select" aria-label="Default select example" name="id">
                             <option selected>Nama Waiters</option>
                             <?php 
-                            $sql = $conn->query("SELECT * FROM waiters");
+                            $sql = $conn->query("SELECT * FROM pelayans");
                             while ($waiters = $sql->fetch_assoc()) {
                             ?>
-                            <option value="<?php echo $waiters["id_waiters"] ?>">
-                                <?php echo $waiters['nama_waiters']?> 
+                            <option value="<?php echo $waiters["id"] ?>">
+                                <?php echo $waiters['nama']?> 
                             </option>
                             <?php
                             }

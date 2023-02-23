@@ -66,7 +66,7 @@
 					case 'delete':
 						include "menu_delete.php";
 						break;
-					case 'edit':
+					case 'menu-edit':
 						include "menu_edit_form.php";
 						break;		
 					case 'input-pelanggan':

@@ -61,35 +61,7 @@
                         <?php endforeach ?>
                     </tbody>
                 </table>   
-                <form action="" method="" class="form-horizontal ">
-                    <section class="base">
-                        <div class="form-group row my-4">
-                            <label for="nama" class="control-label col-sm-5">Nama Pelanggan</label>
-                            <div class="col-sm-7 float-right">
-                            <input type="text"  class="form-control" name="nama_produk" autofocus="" required="" id="nama"/>
-                            </div>
-                        </div>
-                        <div class="form-group row my-4">
-                            <label for="nama" class="control-label col-sm-5">No Meja</label>
-                            <div class="col-sm-7 float-right">
-                            <input type="text"  class="form-control" name="meja" autofocus="" required="" id="meja"/>
-                            </div>
-                        </div>
-                        <div class="form-group row my-4">
-                            <label for="nama" class="control-label col-sm-5">Waiters</label>
-                            <div class="col-sm-7 float-right">
-                            <input type="text"  class="form-control" name="waiters" autofocus="" required="" id="waiters"/>
-                            </div>
-                        </div>
-                        <div class="form-group row my-4">
-                            <label for="nama" class="control-label col-sm-5">Tanggal</label>
-                            <div class="col-sm-7 float-right">
-                            <input type="date"  class="form-control" name="waiters" autofocus="" required="" id="waiters"/>
-                            </div>
-                        </div>
-                        <a href="checkout.php?id=<?php echo $row['id']?>"><button class="btn btn-success">Bayar</button></a>
-                    </section>
-                </form>
+                <a href="home.php?halaman=bayar"><button class="btn btn-dark">Bayar</button></a>
             </div>
         </div>
     </div>

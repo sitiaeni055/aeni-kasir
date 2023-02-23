@@ -3,7 +3,7 @@
     include "../koneksi.php";
     $id = $_GET['id'];
     $sql ="SELECT * FROM menus WHERE id='$id'";
-    $id = $_GET['id'];
+
     $edit = $conn->query($sql);
 ?>
 <div class="edit mt-5">
@@ -50,7 +50,7 @@
    
 <?php
     } if(isset($_POST['edit'])){
-        $id = $_POST['id'];
+        
         $nama = $_POST['nama_menu'];
         $harga = $_POST['harga'];
         $stok = $_POST['stok'];
