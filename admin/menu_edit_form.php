@@ -1,16 +1,16 @@
 
 <?php
     include "../koneksi.php";
-    $id = $_GET['id'];
-    $sql ="SELECT * FROM menus WHERE id='$id'";
-
+    $id = $_GET["id"];
+    $sql = "SELECT * FROM menus WHERE id='$id'";
     $edit = $conn->query($sql);
 ?>
-<div class="edit mt-5">
-   <form method="POST" action="" enctype="multipart/form-data" >
+
 <?php
     while($row=$edit->fetch_assoc()){
 ?>
+<div class="edit mt-5">
+<form method="post" action="" enctype="multipart/form-data" >
       <section class="base mt-4">
         <div class="my-4">
           <label>No</label>
@@ -18,7 +18,7 @@
         </div>
         <div class="my-4">
           <label>Nama Produk</label>
-          <input type="text" class="form-control" name="nama" autofocus="" required="" value="<?php echo $row['nama_menu']?>"/>
+          <input type="text" class="form-control" name="nama_menu" autofocus="" required="" value="<?php echo $row['nama_menu']?>"/>
         </div>
         <div class="my-4">
             <label>Kategori</label>
@@ -36,7 +36,7 @@
         </div>
         <div class="my-4">
             <label>Stok</label>
-            <input type="text" class="form-control" name="stok" required="" />
+            <input type="text" class="form-control" name="stock" required="" />
         </div>
         <div class="my-4"> 
           <label>Gambar Produk</label>
@@ -49,11 +49,13 @@
 </div>
    
 <?php
-    } if(isset($_POST['edit'])){
-        
+    } 
+    if(isset($_POST['edit'])){
+        $id = $_POST['id'];
         $nama = $_POST['nama_menu'];
+        $kategori = $_POST['nama'];
         $harga = $_POST['harga'];
-        $stok = $_POST['stok'];
+        $stok = $_POST['stock'];
         $nama_gambar = $_FILES['gambar']['name'];
         $file_tmp = $_FILES['gambar']['tmp_name'];
         $update = $conn->query("UPDATE menus SET nama='$nama', kategori='$kategori', harga='$harga', stok='$stok', gambar='$nama_gambar' WHERE id='$id'");

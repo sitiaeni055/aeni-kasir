@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 22, 2023 at 02:22 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Feb 24, 2023 at 09:08 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 7.4.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `aeni_kasir`
+-- Database: `saa_kasir`
 --
 
 -- --------------------------------------------------------
@@ -50,9 +50,17 @@ CREATE TABLE `menus` (
   `id` int(11) NOT NULL,
   `nama_menu` varchar(100) NOT NULL,
   `harga` int(100) NOT NULL,
+  `stock` int(11) NOT NULL,
   `gambar` text NOT NULL,
   `kategori_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `menus`
+--
+
+INSERT INTO `menus` (`id`, `nama_menu`, `harga`, `stock`, `gambar`, `kategori_id`) VALUES
+(2, 'boba', 15000, 1781, 'download.jpg', 1);
 
 -- --------------------------------------------------------
 
@@ -208,7 +216,7 @@ ALTER TABLE `kategoris`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `pelayans`

@@ -52,7 +52,7 @@
     </div>
 </div>
 </section>
-<section class="container" style="background: #EEE9DA; max-height: 500px;">
+<section class="container  " style="background: #EEE9DA; max-height: 500px;">
     <div class="row">
         <div class="col-6">
             <h2>Menu</h2>

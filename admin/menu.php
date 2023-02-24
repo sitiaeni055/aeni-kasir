@@ -17,9 +17,9 @@
     </tr>
 
     <?php
-    $sql = "SELECT * FROM menus
-    INNER JOIN kategoris
-    ON menus.kategori_id = kategoris.id ";
+    $sql = "SELECT * FROM kategoris
+    INNER JOIN menus
+    ON kategoris.id = menus.kategori_id  ";
     $result = $conn->query($sql);
     $no = 1;
     while ($row=$result->fetch_assoc()){
@@ -33,8 +33,8 @@
             <td><?php echo $row["stock"]?></td>
             <td><img width="70" src="../image/<?php echo $row["gambar"]?>" alt=""></td>
             <td>
-                <a href="home.php?id=<?php echo $row['id']?>&halaman=delete"><button type="submit" class="btn btn-danger">Delete</button></a>
-                <a href="menu_edit_form.php?id=<?php echo $row['id']?>"><button type="submit" class="btn btn-primary">Edit</button></a>
+                <a href="home.php?halaman=delete&id=<?php echo $row['id']?>"><button type="submit" class="btn btn-danger">Delete</button></a>
+                <a href="home.php?halaman=menu-edit&id=<?php echo $row['id']?>"><button class="btn btn-primary">Edit</button></a>
             
             </td>
         </tr>

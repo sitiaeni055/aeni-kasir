@@ -1,7 +1,7 @@
 <?php
     include "koneksi.php";
     $id = $_GET['id'];
-    $edit = $conn->query("SELECT * FROM masakan WHERE id='$id'");
+    $edit = $conn->query("SELECT * FROM menus WHERE id='$id'");
 ?>
     <form action="" method="post">
 <?php

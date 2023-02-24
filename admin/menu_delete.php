@@ -1,8 +1,10 @@
 <?php
-    $id = $_GET['id'];
-    $result = $conn->query("DELETE FROM menus WHERE id = '$id'");
+    include "../koneksi.php";
 
-    if($result){
+    $id = $_GET['id'];
+    $delete = $conn->query("DELETE FROM menus WHERE id = '$id'");
+
+    if($delete){
         header('location:home.php?halaman=menu');
     }
 ?>
