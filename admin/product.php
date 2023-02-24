@@ -27,6 +27,7 @@
                 </div>
             </div>
             <div class="col-md-6 mt-5">
+            <?php if (!empty($_SESSION['keranjang'] )): ?>
                 <table class="table table-bordered">
                     <thead>
                         <tr>
@@ -46,7 +47,7 @@
                         <?php
                             $ambil = $conn->query("SELECT * FROM menus WHERE id = '$id_menu'");
                             $pecah = $ambil->fetch_assoc();
-                            $Subharga = $pecah['harga']*$jumlah;
+                            $Subharga = $pecah['harga'] *$jumlah;
                         ?>
                         <tr>
                             <td><?php echo $no++ ?></td>
@@ -59,9 +60,13 @@
                             </td>
                         </tr>
                         <?php endforeach ?>
-                    </tbody>
+                    </tbody> 
                 </table>   
                 <a href="home.php?halaman=bayar"><button class="btn btn-dark">Bayar</button></a>
+                <?php else : ?>
+                    keranjang kosong
+                <?php endif ?>
+                
             </div>
         </div>
     </div>

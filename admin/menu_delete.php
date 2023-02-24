@@ -1,9 +1,9 @@
 <?php
-
+    include "../koneksi.php";
     $id = $_GET['id'];
-    $result = $conn->query("DELETE FROM menus WHERE id = '$id'");
+    $delete = $conn->query("DELETE FROM menus WHERE id = '$id'");
 
-    if($result){
+    if($delete){
         header('location:home.php?halaman=menu');
     }
 ?>
