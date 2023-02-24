@@ -1,5 +1,4 @@
 <?php
-
     $id = $_GET['id'];
     $result = $conn->query("DELETE FROM menus WHERE id = '$id'");
 

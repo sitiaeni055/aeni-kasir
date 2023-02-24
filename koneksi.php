@@ -1,6 +1,6 @@
 <?php
 
-    $conn = new mysqli("localhost", "root", "", "saa_kasir");
+    $conn = new mysqli("localhost", "root", "", "aeni-kasir");
 
     // Check connection
     if ($conn->connect_error) {

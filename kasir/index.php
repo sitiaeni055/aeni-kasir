@@ -53,7 +53,7 @@
 						break;
 				}
 			}else{
-				include "home.php";
+				include "menu.php";
 			}
 			?>
 		</div>

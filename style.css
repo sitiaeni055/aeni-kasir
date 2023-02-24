@@ -309,3 +309,12 @@ header label span {
     margin-left: 0rem !important;
   }
 }
+
+.my-custom-scrollbar {
+  position: relative;
+  overflow: auto;
+  max-height: 500px;
+}
+.table-wrapper-scroll-y {
+  display: block;
+}
