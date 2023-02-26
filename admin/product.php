@@ -18,7 +18,7 @@
                             <h6> <?php echo $row['nama_menu']; ?> </h6>
                             <h5>Rp<?php echo number_format($row['harga']); ?> </h5>
                             <input type="hidden" name="harga" value="<?php echo $row['harga'] ?>">
-                            <a href="keranjang_belanja.php?id=<?php echo $row['id'] ?>"> <button class="btn btn-primary">  Tambah</button></a>
+                            <a href="keranjang_belanja.php?id=<?php echo $row['id'] ?>"> <button class="btn btn-primary">Tambah</button></a>
                     </div>
                     <?php
                     }              

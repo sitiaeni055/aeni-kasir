@@ -12,28 +12,34 @@
 			</div>
 			<div class="sidebar-menu" id="body">
 				<li class="item">
-					<a href="home.php?halaman=menu" class="menu-btn"><i class='bx bxs-grid' ></i><span>Daftar Menu</span> </a>
+					<a href="home.php?halaman=menu" class="menu-btn"><i class='bx bxs-grid' ></i><span>Daftar Transaksi</span> </a>
 
 				</li>
-				<li class="item" id="">
-					<a href="home.php?halaman=produk" class="menu-btn">
-						<i class="fa-solid  fa-store"></i><span>Transaksi</span>
-					</a>
-				</li>
+				
 				<li class="item" id="orders">
 					<a href="#orders" class="menu-btn">
-						<i class="fa-solid  fa-store"></i><span>Dropdown<i class="fas fa-chevron-down drop-down"></i></span>
+						<i class="fa-solid  fa-store"></i><span>Master Data<i class="fas fa-chevron-down drop-down"></i></span>
 					</a>
             
 					<div class="sub-menu">
-						<a href=""><i class="las la-apple-alt"  style="font-size: 25px;"></i><span>Dropdown</span></a>
-						<a href=""><i class='bx bx-cake' style="font-size: 25px;"></i><span>Dropdown</span></a>
-						<a href=""><i class="las la-coffee"  style="font-size: 25px;"></i><span>Dropdown</span></a>
+						<a href=""><i class="las la-apple-alt"  style="font-size: 25px;"></i><span>Menu</span></a>
+						<a href=""><i class='bx bx-cake' style="font-size: 25px;"></i><span>Meja</span></a>
+						<a href="">
+							<i class="las la-coffee"  style="font-size: 25px;"></i><span>Waiter</span>
+						</a>
+						<a href="">
+						<i class='bx bx-user' style="font-size: 25px;"></i><span>User</span>
+						</a>
 					</div>
 				</li>
 				<li class="item" id="">
 					<a href="" class="menu-btn">
 						<i class='bx bx-receipt' ></i><span>Laporan</span>
+					</a>
+				</li>
+				<li class="item" id="">
+					<a href="home.php?halaman=produk" class="menu-btn">
+						<i class="fa-solid  fa-store"></i><span>Transaksi</span>
 					</a>
 				</li>
 				<li class="item" id="">

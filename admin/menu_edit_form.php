@@ -53,12 +53,12 @@
     if(isset($_POST['edit'])){
         $id = $_POST['id'];
         $nama = $_POST['nama_menu'];
-        $kategori = $_POST['nama'];
+        $kategori = $_POST['kategori'];
         $harga = $_POST['harga'];
         $stok = $_POST['stock'];
         $nama_gambar = $_FILES['gambar']['name'];
         $file_tmp = $_FILES['gambar']['tmp_name'];
-        $update = $conn->query("UPDATE menus SET nama='$nama', kategori='$kategori', harga='$harga', stok='$stok', gambar='$nama_gambar' WHERE id='$id'");
+        $update = $conn->query("UPDATE menus SET nama_menu='$nama', kategori_id='$kategori', harga='$harga', stock='$stok', gambar='$nama_gambar' WHERE id='$id'");
         if($update){
             move_uploaded_file($file_tmp, '../image/'.$nama_gambar);
             header('location:home.php?halaman=menu');
