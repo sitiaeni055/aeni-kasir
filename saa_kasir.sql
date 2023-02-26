@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 24, 2023 at 09:08 AM
--- Server version: 10.4.25-MariaDB
--- PHP Version: 7.4.30
+-- Generation Time: Feb 26, 2023 at 04:30 AM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `saa_kasir`
+-- Database: `aeni_kasir`
 --
 
 -- --------------------------------------------------------
@@ -50,8 +50,8 @@ CREATE TABLE `menus` (
   `id` int(11) NOT NULL,
   `nama_menu` varchar(100) NOT NULL,
   `harga` int(100) NOT NULL,
-  `stock` int(11) NOT NULL,
   `gambar` text NOT NULL,
+  `stock` int(11) NOT NULL,
   `kategori_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -59,8 +59,15 @@ CREATE TABLE `menus` (
 -- Dumping data for table `menus`
 --
 
-INSERT INTO `menus` (`id`, `nama_menu`, `harga`, `stock`, `gambar`, `kategori_id`) VALUES
-(2, 'boba', 15000, 1781, 'download.jpg', 1);
+INSERT INTO `menus` (`id`, `nama_menu`, `harga`, `gambar`, `stock`, `kategori_id`) VALUES
+(1, 'a', 23, '044788300_1649730758-shutterstock_2023551554.webp', 32, 2),
+(3, 'a', 111, '3991499229.jpg', 111, 2),
+(4, 'rerere', 222, 'dca21bf3-923c-486f-bc2e-a3dcd759b1df.jpeg', 111, 1),
+(5, 'rerere', 222, '044788300_1649730758-shutterstock_2023551554.webp', 111, 2),
+(6, 'rerere', 222, 'Homemade-Caramel-Frappe-with-Chocolate-Chips-500x500.png', 3, 2),
+(7, 'rerere', 111, '3991499229.jpg', 111, 1),
+(8, 'rerere', 111, 'dca21bf3-923c-486f-bc2e-a3dcd759b1df.jpeg', 3, 2),
+(9, 'rerere', 222, 'download.jpg', 111, 2);
 
 -- --------------------------------------------------------
 
@@ -70,14 +77,14 @@ INSERT INTO `menus` (`id`, `nama_menu`, `harga`, `stock`, `gambar`, `kategori_id
 
 CREATE TABLE `pelayans` (
   `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL
+  `pelayan_nama` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `pelayans`
 --
 
-INSERT INTO `pelayans` (`id`, `nama`) VALUES
+INSERT INTO `pelayans` (`id`, `pelayan_nama`) VALUES
 (1, 'Tae Chun'),
 (2, 'Jung Kuk');
 
@@ -89,12 +96,21 @@ INSERT INTO `pelayans` (`id`, `nama`) VALUES
 
 CREATE TABLE `pesanans` (
   `id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `nama_pelanggan` varchar(110) NOT NULL,
   `table_id` int(11) NOT NULL,
   `pelayan_id` int(11) NOT NULL,
   `tanggal` date NOT NULL,
-  `total` int(50) NOT NULL
+  `total` int(50) NOT NULL,
+  `bayar` enum('sudah','belum') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `pesanans`
+--
+
+INSERT INTO `pesanans` (`id`, `nama_pelanggan`, `table_id`, `pelayan_id`, `tanggal`, `total`, `bayar`) VALUES
+(12, 'bbbbb', 2, 1, '2023-02-26', 333, 'belum'),
+(13, 'nasir', 1, 1, '2023-02-26', 222, 'belum');
 
 -- --------------------------------------------------------
 
@@ -109,6 +125,15 @@ CREATE TABLE `pesanan_details` (
   `jumlah` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data for table `pesanan_details`
+--
+
+INSERT INTO `pesanan_details` (`id`, `pesanan_id`, `menu_id`, `jumlah`) VALUES
+(12, 12, 4, 1),
+(13, 12, 7, 1),
+(14, 13, 4, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -117,7 +142,7 @@ CREATE TABLE `pesanan_details` (
 
 CREATE TABLE `tables` (
   `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
+  `table_nama` varchar(100) NOT NULL,
   `status` enum('kosong','terisi') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -125,7 +150,7 @@ CREATE TABLE `tables` (
 -- Dumping data for table `tables`
 --
 
-INSERT INTO `tables` (`id`, `nama`, `status`) VALUES
+INSERT INTO `tables` (`id`, `table_nama`, `status`) VALUES
 (1, '001', 'kosong'),
 (2, '002', 'kosong');
 
@@ -179,9 +204,8 @@ ALTER TABLE `pelayans`
 --
 ALTER TABLE `pesanans`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `user_id` (`user_id`,`table_id`,`pelayan_id`),
-  ADD KEY `pelayan_id` (`pelayan_id`),
-  ADD KEY `table_id` (`table_id`);
+  ADD KEY `user_id` (`table_id`,`pelayan_id`),
+  ADD KEY `pelayan_id` (`pelayan_id`);
 
 --
 -- Indexes for table `pesanan_details`
@@ -216,7 +240,7 @@ ALTER TABLE `kategoris`
 -- AUTO_INCREMENT for table `menus`
 --
 ALTER TABLE `menus`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `pelayans`
@@ -228,13 +252,13 @@ ALTER TABLE `pelayans`
 -- AUTO_INCREMENT for table `pesanans`
 --
 ALTER TABLE `pesanans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT for table `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `tables`
@@ -262,7 +286,6 @@ ALTER TABLE `menus`
 -- Constraints for table `pesanans`
 --
 ALTER TABLE `pesanans`
-  ADD CONSTRAINT `pesanans_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pesanans_ibfk_2` FOREIGN KEY (`pelayan_id`) REFERENCES `pelayans` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pesanans_ibfk_3` FOREIGN KEY (`table_id`) REFERENCES `tables` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
