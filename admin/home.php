@@ -12,20 +12,19 @@
 			</div>
 			<div class="sidebar-menu" id="body">
 				<li class="item">
-					<a href="home.php?halaman=menu" class="menu-btn"><i class='bx bxs-grid' ></i><span>Daftar Transaksi</span> </a>
+					<a href="home.php?halaman=" class="menu-btn"><i class='bx bxs-grid' ></i><span>Daftar Transaksi</span> </a>
 
 				</li>
 				
-				<li class="item" id="orders">
-					<a href="#orders" class="menu-btn">
+				<li class="item" id="">
+					<a href="" class="menu-btn">
 					<i class='bx bx-data'></i><span>Master Data<i class="fas fa-chevron-down drop-down"></i></span>
 					</a>
-            
 					<div class="sub-menu">
-						<a href=""><i class='bx bx-food-menu'style="font-size: 25px" ></i><span>Menu</span></a>
-						<a href="home.php?halaman=table"><i class='bx bx-table'  style="font-size: 25px"></i><span>Meja</span></a>
+						<a href="home.php?halaman=menu"><i class='bx bx-food-menu'style="font-size: 25px" ></i><span>Menu</span></a>
+						<a href="home.php?halaman=meja"><i class='bx bx-table'  style="font-size: 25px"></i><span>Meja</span></a>
 						<a href="home.php?halaman=waiter">
-						<i class="fa-solid fa-users"   style="font-size: 25px"></i><span>Waiter</span>
+						<i class="fa-solid fa-users"   style="font-size: 20px"></i><span>Waiter</span>
 						</a>
 						<a href="">
 						<i class='bx bx-user' style="font-size: 25px;"></i><span>User</span>
@@ -34,12 +33,16 @@
 				</li>
 				<li class="item" id="">
 					<a href="" class="menu-btn">
-						<i class='bx bx-receipt' ></i><span>Laporan</span>
+						<i class="fa-solid  fa-store"></i><span>Transaksi<i class="fas fa-chevron-down drop-down"></i></span>
 					</a>
+					<div class="sub-menu">
+						<a href="home.php?halaman=menu"><i class='bx bx-food-menu'style="font-size: 25px" ></i><span>Menu</span></a>
+						<a href="home.php?halaman=meja"><i class='bx bx-table'  style="font-size: 25px"></i><span>Meja</span></a>
+					</div>
 				</li>
 				<li class="item" id="">
-					<a href="home.php?halaman=produk" class="menu-btn">
-						<i class="fa-solid  fa-store"></i><span>Transaksi</span>
+					<a href="" class="menu-btn">
+						<i class='bx bx-receipt' ></i><span>Laporan</span>
 					</a>
 				</li>
 				<li class="item" id="">
@@ -104,6 +107,18 @@
 						break;		
 					case 'waiter-edit':
 						include "waiter_edit.php";
+						break;		
+					case 'meja':
+						include "meja.php";
+						break;		
+					case 'meja-edit':
+						include "meja_edit.php";
+						break;		
+					case 'meja-delete':
+						include "meja_delete.php";
+						break;	
+					case 'meja-add':
+						include "meja_add.php";
 						break;		
 					default:
 						echo "<center><h3>Maaf halaman tidak ditemukan</h3></center>";

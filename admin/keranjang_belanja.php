@@ -8,6 +8,6 @@ if (isset($_SESSION["keranjang"][$id_menu])) {
 }else {
     $_SESSION["keranjang"][$id_menu] = 1;
 }
-echo "<script>alert('produk telah masuk keranjang belanja');</script>";
-header("location:home.php?halaman=produk");
+
+header("location:home.php");
 ?>
