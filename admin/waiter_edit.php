@@ -11,7 +11,7 @@
 ?>
 <div class="edit mt-5">
 <form method="post" action="" enctype="multipart/form-data" >
-      <section class="base mt-4">
+      <section class="base">
         <div class="my-4">
           <label>No</label>
           <input type="text" class="form-control" name="id" autofocus="" required="" value="<?php echo $row['id'];?>"/>

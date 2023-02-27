@@ -1,10 +1,10 @@
-<!-- TOMBOL TAMBAH PRODUK -->
+
 <a href="home.php?halaman=waiter-add">
     <button type="submit" class="btn btn-secondary" style=" margin-top: 50px; ">
         <i class="fa-solid fa-plus"></i>Tambah
     </button>
 </a>
-<!-- TOMBOL TAMBAH PRODUK -->
+
 <style>
     .table {
         width: 50%;
