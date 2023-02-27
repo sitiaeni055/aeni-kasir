@@ -12,12 +12,12 @@
 			</div>
 			<div class="sidebar-menu" id="body">
 				<li class="item">
-					<a href="home.php?halaman=" class="menu-btn"><i class='bx bxs-grid' ></i><span>Daftar Transaksi</span> </a>
+					<a href="home.php?halaman=pesanan" class="menu-btn"><i class='bx bxs-grid' ></i><span>Daftar Transaksi</span> </a>
 
 				</li>
 				
-				<li class="item" id="">
-					<a href="" class="menu-btn">
+				<li class="item" id="data">
+					<a href="#data" class="menu-btn">
 					<i class='bx bx-data'></i><span>Master Data<i class="fas fa-chevron-down drop-down"></i></span>
 					</a>
 					<div class="sub-menu">
@@ -31,13 +31,12 @@
 						</a>
 					</div>
 				</li>
-				<li class="item" id="">
-					<a href="" class="menu-btn">
+				<li class="item" id="transaksi">
+					<a href="#transaksi" class="menu-btn">
 						<i class="fa-solid  fa-store"></i><span>Transaksi<i class="fas fa-chevron-down drop-down"></i></span>
 					</a>
 					<div class="sub-menu">
-						<a href="home.php?halaman=menu"><i class='bx bx-food-menu'style="font-size: 25px" ></i><span>Menu</span></a>
-						<a href="home.php?halaman=meja"><i class='bx bx-table'  style="font-size: 25px"></i><span>Meja</span></a>
+						<a href="home.php?halaman=produk"><i class='bx bx-food-menu'style="font-size: 25px" ></i><span>Add Transaksi</span></a>
 					</div>
 				</li>
 				<li class="item" id="">
@@ -119,6 +118,9 @@
 						break;	
 					case 'meja-add':
 						include "meja_add.php";
+						break;		
+					case 'pesanan':
+						include "pesanan.php";
 						break;		
 					default:
 						echo "<center><h3>Maaf halaman tidak ditemukan</h3></center>";

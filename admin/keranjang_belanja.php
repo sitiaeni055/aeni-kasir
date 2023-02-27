@@ -9,5 +9,5 @@ if (isset($_SESSION["keranjang"][$id_menu])) {
     $_SESSION["keranjang"][$id_menu] = 1;
 }
 
-header("location:home.php");
+header("location:home.php?halaman=produk");
 ?>
