@@ -24,7 +24,7 @@
 					<div class="sub-menu">
 						<a href=""><i class="las la-apple-alt"  style="font-size: 25px;"></i><span>Menu</span></a>
 						<a href=""><i class='bx bx-cake' style="font-size: 25px;"></i><span>Meja</span></a>
-						<a href="">
+						<a href="home.php?halaman=waiter">
 							<i class="las la-coffee"  style="font-size: 25px;"></i><span>Waiter</span>
 						</a>
 						<a href="">
@@ -92,6 +92,18 @@
 						break;		
 					case 'bayar':
 						include "checkout.php";
+						break;		
+					case 'waiter':
+						include "waiter.php";
+						break;		
+					case 'waiter-delete':
+						include "waiter_delete.php";
+						break;		
+					case 'waiter-add':
+						include "waiter_add.php";
+						break;		
+					case 'waiter-edit':
+						include "waiter_edit.php";
 						break;		
 					default:
 						echo "<center><h3>Maaf halaman tidak ditemukan</h3></center>";
