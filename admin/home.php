@@ -18,14 +18,14 @@
 				
 				<li class="item" id="orders">
 					<a href="#orders" class="menu-btn">
-						<i class="fa-solid  fa-store"></i><span>Master Data<i class="fas fa-chevron-down drop-down"></i></span>
+					<i class='bx bx-data'></i><span>Master Data<i class="fas fa-chevron-down drop-down"></i></span>
 					</a>
             
 					<div class="sub-menu">
-						<a href=""><i class="las la-apple-alt"  style="font-size: 25px;"></i><span>Menu</span></a>
-						<a href=""><i class='bx bx-cake' style="font-size: 25px;"></i><span>Meja</span></a>
+						<a href=""><i class='bx bx-food-menu'style="font-size: 25px" ></i><span>Menu</span></a>
+						<a href="home.php?halaman=table"><i class='bx bx-table'  style="font-size: 25px"></i><span>Meja</span></a>
 						<a href="home.php?halaman=waiter">
-							<i class="las la-coffee"  style="font-size: 25px;"></i><span>Waiter</span>
+						<i class="fa-solid fa-users"   style="font-size: 25px"></i><span>Waiter</span>
 						</a>
 						<a href="">
 						<i class='bx bx-user' style="font-size: 25px;"></i><span>User</span>
