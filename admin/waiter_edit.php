@@ -30,9 +30,12 @@
     if(isset($_POST['edit'])){
         $id = $_POST['id'];
         $nama = $_POST['pelayan_nama'];
-        $update = $conn->query("UPDATE pelayans SET pelayan_nama='$nama', WHERE id='$id'");
+        $update = $conn->query("UPDATE pelayans SET pelayan_nama='$nama' WHERE id='$id'");
         if($update){
-            header('location:home.php?halaman=waiter');
+            echo ("<script LANGUAGE='JavaScript'>
+            window.alert('Berhasil diupdate');
+            window.location.href='home.php?halaman=waiter';
+            </script>"); 
         }
     } 
 ?>

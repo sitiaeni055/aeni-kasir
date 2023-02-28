@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 26, 2023 at 04:30 AM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Generation Time: Feb 27, 2023 at 08:55 AM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.23
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -60,14 +60,13 @@ CREATE TABLE `menus` (
 --
 
 INSERT INTO `menus` (`id`, `nama_menu`, `harga`, `gambar`, `stock`, `kategori_id`) VALUES
-(1, 'a', 23, '044788300_1649730758-shutterstock_2023551554.webp', 32, 2),
-(3, 'a', 111, '3991499229.jpg', 111, 2),
-(4, 'rerere', 222, 'dca21bf3-923c-486f-bc2e-a3dcd759b1df.jpeg', 111, 1),
-(5, 'rerere', 222, '044788300_1649730758-shutterstock_2023551554.webp', 111, 2),
-(6, 'rerere', 222, 'Homemade-Caramel-Frappe-with-Chocolate-Chips-500x500.png', 3, 2),
-(7, 'rerere', 111, '3991499229.jpg', 111, 1),
-(8, 'rerere', 111, 'dca21bf3-923c-486f-bc2e-a3dcd759b1df.jpeg', 3, 2),
-(9, 'rerere', 222, 'download.jpg', 111, 2);
+(1, 'martabak telor', 20000, '044788300_1649730758-shutterstock_2023551554.webp', 1111, 2),
+(4, 'bakso', 20000, 'dca21bf3-923c-486f-bc2e-a3dcd759b1df.jpeg', 1111, 2),
+(5, 'Martabak manis', 30000, 'martabak.jpeg', 1111, 2),
+(6, 'capucino', 18000, 'Homemade-Caramel-Frappe-with-Chocolate-Chips-500x500.png', 1111, 1),
+(7, 'Seblak', 18000, '3991499229.jpg', 1111, 2),
+(8, 'toppoki', 15000, 'topokki-instan-halal_11zon.jpg', 1111, 2),
+(9, 'boba', 18000, 'download.jpg', 1111, 1);
 
 -- --------------------------------------------------------
 
@@ -86,7 +85,7 @@ CREATE TABLE `pelayans` (
 
 INSERT INTO `pelayans` (`id`, `pelayan_nama`) VALUES
 (1, 'Tae Chun'),
-(2, 'Jung Kuk');
+(3, 'jung kuk\r\n');
 
 -- --------------------------------------------------------
 
@@ -109,8 +108,8 @@ CREATE TABLE `pesanans` (
 --
 
 INSERT INTO `pesanans` (`id`, `nama_pelanggan`, `table_id`, `pelayan_id`, `tanggal`, `total`, `bayar`) VALUES
-(12, 'bbbbb', 2, 1, '2023-02-26', 333, 'belum'),
-(13, 'nasir', 1, 1, '2023-02-26', 222, 'belum');
+(14, '', 3, 1, '2023-02-27', 20000, 'belum'),
+(15, 'sipa', 3, 1, '2023-02-27', 38000, 'belum');
 
 -- --------------------------------------------------------
 
@@ -132,7 +131,10 @@ CREATE TABLE `pesanan_details` (
 INSERT INTO `pesanan_details` (`id`, `pesanan_id`, `menu_id`, `jumlah`) VALUES
 (12, 12, 4, 1),
 (13, 12, 7, 1),
-(14, 13, 4, 1);
+(14, 13, 4, 1),
+(15, 14, 1, 2),
+(16, 15, 6, 1),
+(17, 15, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -151,8 +153,8 @@ CREATE TABLE `tables` (
 --
 
 INSERT INTO `tables` (`id`, `table_nama`, `status`) VALUES
-(1, '001', 'kosong'),
-(2, '002', 'kosong');
+(3, '002', 'kosong'),
+(4, '', '');
 
 -- --------------------------------------------------------
 
@@ -246,25 +248,25 @@ ALTER TABLE `menus`
 -- AUTO_INCREMENT for table `pelayans`
 --
 ALTER TABLE `pelayans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `pesanans`
 --
 ALTER TABLE `pesanans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `tables`
 --
 ALTER TABLE `tables`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `users`

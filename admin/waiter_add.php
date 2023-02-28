@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['add'])){
     $nama_pelayan = $_POST['pelayan_nama'];
-    $add = $conn->query("INSERT INTO pelayans VALUE ('', '$nama_pelayan',)");
+    $add = $conn->query("INSERT INTO pelayans VALUE ('', '$nama_pelayan')");
 
     if($add){
         header('location:home.php?halaman=waiter');

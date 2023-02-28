@@ -18,7 +18,11 @@
         </div>
         <div class="my-4">
           <label>Nama meja</label>
-          <input type="text" class="form-control" name="pelayan_nama" autofocus="" required="" value="<?php echo $row['table_nama']?>"/>
+          <input type="text" class="form-control" name="table_nama" autofocus="" required="" value="<?php echo $row['table_nama']?>"/>
+        </div>
+        <div class="my-4">
+            <label>Status</label>
+            <input type="text" class="form-control" name="status" autofocus="" required="" />
         </div>
         <button type="submit" name="edit" class="btn btn-light">Edit</button>
         </section>
@@ -33,7 +37,10 @@
         $status = $_POST['status'];
         $update = $conn->query("UPDATE tables SET table_nama='$nama_table', status='$status' WHERE id='$id'");
         if($update){
-            header('location:home.php?halaman=meja');
+            echo ("<script LANGUAGE='JavaScript'>
+                window.alert('Berhasil diupdate');
+                window.location.href='home.php?halaman=meja';
+                </script>"); 
         }
     } 
 ?>
