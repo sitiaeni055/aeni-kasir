@@ -61,7 +61,11 @@
         $update = $conn->query("UPDATE menus SET nama_menu='$nama', kategori_id='$kategori', harga='$harga', stock='$stok', gambar='$nama_gambar' WHERE id='$id'");
         if($update){
             move_uploaded_file($file_tmp, '../image/'.$nama_gambar);
-            header('location:home.php?halaman=menu');
+            echo ("<script LANGUAGE='JavaScript'>
+            window.alert('Berhasil diupdate');
+            window.location.href='home.php?halaman=menu';
+            </script>"); 
+        
         }
     } 
 ?>
