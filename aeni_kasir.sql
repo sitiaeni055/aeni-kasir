@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 27, 2023 at 08:55 AM
--- Server version: 10.4.21-MariaDB
--- PHP Version: 7.4.23
+-- Waktu pembuatan: 01 Mar 2023 pada 08.10
+-- Versi server: 10.4.24-MariaDB
+-- Versi PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategoris`
+-- Struktur dari tabel `kategoris`
 --
 
 CREATE TABLE `kategoris` (
@@ -33,7 +33,7 @@ CREATE TABLE `kategoris` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `kategoris`
+-- Dumping data untuk tabel `kategoris`
 --
 
 INSERT INTO `kategoris` (`id`, `nama`) VALUES
@@ -43,7 +43,7 @@ INSERT INTO `kategoris` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `menus`
+-- Struktur dari tabel `menus`
 --
 
 CREATE TABLE `menus` (
@@ -56,7 +56,7 @@ CREATE TABLE `menus` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `menus`
+-- Dumping data untuk tabel `menus`
 --
 
 INSERT INTO `menus` (`id`, `nama_menu`, `harga`, `gambar`, `stock`, `kategori_id`) VALUES
@@ -66,12 +66,12 @@ INSERT INTO `menus` (`id`, `nama_menu`, `harga`, `gambar`, `stock`, `kategori_id
 (6, 'capucino', 18000, 'Homemade-Caramel-Frappe-with-Chocolate-Chips-500x500.png', 1111, 1),
 (7, 'Seblak', 18000, '3991499229.jpg', 1111, 2),
 (8, 'toppoki', 15000, 'topokki-instan-halal_11zon.jpg', 1111, 2),
-(9, 'boba', 18000, 'download.jpg', 1111, 1);
+(9, 'Boba', 10000, 'download.jpg', 1111, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pelayans`
+-- Struktur dari tabel `pelayans`
 --
 
 CREATE TABLE `pelayans` (
@@ -80,17 +80,18 @@ CREATE TABLE `pelayans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pelayans`
+-- Dumping data untuk tabel `pelayans`
 --
 
 INSERT INTO `pelayans` (`id`, `pelayan_nama`) VALUES
 (1, 'Tae Chun'),
-(3, 'jung kuk\r\n');
+(3, 'jung kuk\r\n'),
+(4, 'mang ujang');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesanans`
+-- Struktur dari tabel `pesanans`
 --
 
 CREATE TABLE `pesanans` (
@@ -104,17 +105,18 @@ CREATE TABLE `pesanans` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pesanans`
+-- Dumping data untuk tabel `pesanans`
 --
 
 INSERT INTO `pesanans` (`id`, `nama_pelanggan`, `table_id`, `pelayan_id`, `tanggal`, `total`, `bayar`) VALUES
-(14, '', 3, 1, '2023-02-27', 20000, 'belum'),
-(15, 'sipa', 3, 1, '2023-02-27', 38000, 'belum');
+(16, 'gina', 5, 1, '2023-03-01', 15000, 'belum'),
+(17, 'nisa', 6, 4, '2023-03-01', 35000, 'belum'),
+(18, '', 5, 1, '2023-03-01', 20000, 'belum');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pesanan_details`
+-- Struktur dari tabel `pesanan_details`
 --
 
 CREATE TABLE `pesanan_details` (
@@ -125,7 +127,7 @@ CREATE TABLE `pesanan_details` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `pesanan_details`
+-- Dumping data untuk tabel `pesanan_details`
 --
 
 INSERT INTO `pesanan_details` (`id`, `pesanan_id`, `menu_id`, `jumlah`) VALUES
@@ -134,12 +136,16 @@ INSERT INTO `pesanan_details` (`id`, `pesanan_id`, `menu_id`, `jumlah`) VALUES
 (14, 13, 4, 1),
 (15, 14, 1, 2),
 (16, 15, 6, 1),
-(17, 15, 4, 1);
+(17, 15, 4, 1),
+(18, 16, 8, 1),
+(19, 17, 8, 1),
+(20, 17, 4, 1),
+(21, 18, 1, 1);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `tables`
+-- Struktur dari tabel `tables`
 --
 
 CREATE TABLE `tables` (
@@ -149,17 +155,18 @@ CREATE TABLE `tables` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `tables`
+-- Dumping data untuk tabel `tables`
 --
 
 INSERT INTO `tables` (`id`, `table_nama`, `status`) VALUES
-(3, '002', 'kosong'),
-(4, '', '');
+(5, '001', 'terisi'),
+(6, '002', 'terisi'),
+(7, '004', 'kosong');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `users`
+-- Struktur dari tabel `users`
 --
 
 CREATE TABLE `users` (
@@ -171,7 +178,7 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `users`
+-- Dumping data untuk tabel `users`
 --
 
 INSERT INTO `users` (`id`, `nama`, `username`, `password`, `role`) VALUES
@@ -183,26 +190,26 @@ INSERT INTO `users` (`id`, `nama`, `username`, `password`, `role`) VALUES
 --
 
 --
--- Indexes for table `kategoris`
+-- Indeks untuk tabel `kategoris`
 --
 ALTER TABLE `kategoris`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `menus`
+-- Indeks untuk tabel `menus`
 --
 ALTER TABLE `menus`
   ADD PRIMARY KEY (`id`),
   ADD KEY `kategori_id` (`kategori_id`);
 
 --
--- Indexes for table `pelayans`
+-- Indeks untuk tabel `pelayans`
 --
 ALTER TABLE `pelayans`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pesanans`
+-- Indeks untuk tabel `pesanans`
 --
 ALTER TABLE `pesanans`
   ADD PRIMARY KEY (`id`),
@@ -210,82 +217,82 @@ ALTER TABLE `pesanans`
   ADD KEY `pelayan_id` (`pelayan_id`);
 
 --
--- Indexes for table `pesanan_details`
+-- Indeks untuk tabel `pesanan_details`
 --
 ALTER TABLE `pesanan_details`
   ADD PRIMARY KEY (`id`),
   ADD UNIQUE KEY `pesanan_id` (`pesanan_id`,`menu_id`);
 
 --
--- Indexes for table `tables`
+-- Indeks untuk tabel `tables`
 --
 ALTER TABLE `tables`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `users`
+-- Indeks untuk tabel `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `kategoris`
+-- AUTO_INCREMENT untuk tabel `kategoris`
 --
 ALTER TABLE `kategoris`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `menus`
+-- AUTO_INCREMENT untuk tabel `menus`
 --
 ALTER TABLE `menus`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `pelayans`
+-- AUTO_INCREMENT untuk tabel `pelayans`
 --
 ALTER TABLE `pelayans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
-
---
--- AUTO_INCREMENT for table `pesanans`
---
-ALTER TABLE `pesanans`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
-
---
--- AUTO_INCREMENT for table `pesanan_details`
---
-ALTER TABLE `pesanan_details`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
-
---
--- AUTO_INCREMENT for table `tables`
---
-ALTER TABLE `tables`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `users`
+-- AUTO_INCREMENT untuk tabel `pesanans`
+--
+ALTER TABLE `pesanans`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT untuk tabel `pesanan_details`
+--
+ALTER TABLE `pesanan_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT untuk tabel `tables`
+--
+ALTER TABLE `tables`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+
+--
+-- AUTO_INCREMENT untuk tabel `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `menus`
+-- Ketidakleluasaan untuk tabel `menus`
 --
 ALTER TABLE `menus`
   ADD CONSTRAINT `menus_ibfk_1` FOREIGN KEY (`kategori_id`) REFERENCES `kategoris` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pesanans`
+-- Ketidakleluasaan untuk tabel `pesanans`
 --
 ALTER TABLE `pesanans`
   ADD CONSTRAINT `pesanans_ibfk_2` FOREIGN KEY (`pelayan_id`) REFERENCES `pelayans` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
