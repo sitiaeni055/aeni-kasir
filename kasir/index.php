@@ -22,7 +22,7 @@
 					</div>
 				</li>
 				<li class="item" id="">
-					<a href="" class="menu-btn">
+					<a href="?kasir=laporan" class="menu-btn">
 						<i class='bx bx-receipt' ></i><span>Laporan</span>
 					</a>
 				</li>
@@ -53,9 +53,12 @@
 					case 'menu':
 						include "menu.php";
 						break;	
-						case 'pesanan':
-							include "pesanan.php";
-							break;
+					case 'pesanan':
+						include "pesanan.php";
+						break;
+					case 'laporan':
+						include "laporan.php";
+						break;
 					default:
 						echo "<center><h3>Maaf halaman tidak ditemukan</h3></center>";
 						break;

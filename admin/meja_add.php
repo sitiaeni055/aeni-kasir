@@ -18,7 +18,13 @@ if(isset($_POST['add'])){
         </div>
         <div class="my-4">
             <label>Status</label>
-            <input type="text" class="form-control" name="status" autofocus="" required="" />
+            <select name="status" id="" class="form-control">
+            <?php $result = $conn->query("SELECT * FROM tables"); ?>
+            <?php while($row = $result->fetch_assoc()) : ?>
+                <option value="<?php echo $row['id'] ?>"><?php echo $row['status'] ?></option>
+            
+            <?php endwhile; ?>
+            </select>
         </div>
         <div class="my-4">
             <button type="submit" name="add" class="btn btn-light">Tambah</button>
