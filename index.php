@@ -1,5 +1,6 @@
 <?php
     include "bot.php";
+    include "koneksi.php";
 ?>
 <link rel="stylesheet" href="style.css">
 <nav class="navbar navbar-expand-lg fixed-top"  style="background: #fff; box-shadow: 0 0px 2px rgba(0, 0, 0, 0.2);">
@@ -38,7 +39,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid" style="background: #EEE9DA; max-height: 500px;" id="about">
+<div class="container-fluid" style="background: #EEE9DA; max-height: 500px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);" id="about">
     <div class="row">
     <h2 class="text-center mt-4">About Us</h2>
     <div class="col-md-6 mt-5 p-5">
@@ -52,63 +53,57 @@
     </div>
 </div>
 </section>
-<section class="container  " style="background: #EEE9DA; max-height: 500px;">
+<section class="container p-2 mt-5" style="background: #EEE9DA;" id="menu">
     <div class="row">
-        <div class="col-6">
+        <div class="col-6 p-5">
             <h2>Menu</h2>
             <div class="row">
-                <div class="col">
+                <?php 
+                $sql = "SELECT * FROM menus";
+                $result = $conn->query($sql);
+                while($menu = $result->fetch_assoc()){
+                ?>
+                <div class="col-md-4 mb-3 mt-2">
                     <div class="card" style="width: 10rem;">
-                        <img src="image/topokki-instan-halal_11zon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <a href="#" class="btn btn-primary">Go</a>
-                        </div>
+                    <img src="image/<?php echo $menu['gambar']; ?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $menu['nama_menu']; ?></h5>
+                        <h5 class="card-title">Stok : <?php echo $menu['stock']; ?></h5>
                     </div>
-                    <div class="card" style="width: 10rem;">
-                        <img src="image/topokki-instan-halal_11zon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <a href="#" class="btn btn-primary">Go</a>
-                        </div>
                     </div>
                 </div>
-                <div class="col">
-                <div class="card" style="width: 10rem;">
-                        <img src="image/topokki-instan-halal_11zon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <a href="#" class="btn btn-primary">Go</a>
-                        </div>
-                    </div>
-                <div class="card" style="width: 10rem;">
-                        <img src="image/topokki-instan-halal_11zon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <a href="#" class="btn btn-primary">Go</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                <div class="card" style="width: 10rem;">
-                        <img src="image/topokki-instan-halal_11zon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <a href="#" class="btn btn-primary">Go</a>
-                        </div>
-                    </div>
-                <div class="card" style="width: 10rem;">
-                        <img src="image/topokki-instan-halal_11zon.jpg" class="card-img-top" alt="...">
-                        <div class="card-body">
-                            <h5 class="card-title">Card title</h5>
-                            <a href="#" class="btn btn-primary">Go</a>
-                        </div>
-                    </div>
-                </div>        
+                <?php
+                }
+                ?>
             </div>
         </div>
-        <div class="col-6">
-            
+        <div class="col-6 p-5">
+        <h2>Meja</h2>
+            <div class="row">
+                <?php 
+                $sql = "SELECT * FROM tables";
+                $result = $conn->query($sql);
+                while($table = $result->fetch_assoc()){
+                ?>
+                <div class="col-md-4 mt-2">
+                <div class="card mb-3" style="max-width: 540px; height: 90px;">
+                <div class="row g-0">
+                    <div class="col-md-4">
+                    <img src="image/table.jpg" class="img-fluid rounded-start" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title"><?php echo $table['table_nama']; ?></h5>
+                        <p class="card-text"><small class="text-muted"><?php echo $table['status']; ?></small></p>
+                    </div>
+                    </div>
+                </div>
+                </div>
+                </div>
+                <?php
+                }
+                ?>
+            </div>
         </div>
     </div>
 </section>
