@@ -26,7 +26,7 @@
 						<a href="home.php?halaman=waiter">
 						<i class="fa-solid fa-users"   style="font-size: 20px"></i><span>Waiter</span>
 						</a>
-						<a href="">
+						<a href="home.php?halaman=user">
 						<i class='bx bx-user' style="font-size: 25px;"></i><span>User</span>
 						</a>
 					</div>
@@ -127,6 +127,9 @@
 						break;		
 					case 'laporan':
 						include "laporan.php";
+						break;		
+					case 'user':
+						include "user.php";
 						break;		
 					default:
 						echo "<center><h3>Maaf halaman tidak ditemukan</h3></center>";
