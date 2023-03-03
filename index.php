@@ -64,7 +64,7 @@
                 while($menu = $result->fetch_assoc()){
                 ?>
                 <div class="col-md-4 mb-3 mt-2">
-                    <div class="card" style="width: 10rem;">
+                    <div class="card" style="width: 10rem; height: 250px;">
                     <img src="image/<?php echo $menu['gambar']; ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $menu['nama_menu']; ?></h5>
