@@ -131,7 +131,10 @@
 						break;		
 					case 'user':
 						include "user.php";
-						break;		
+						break;
+					case 'pesanan-invoice':
+						include "pesanan_invoice.php";
+						break;	
 					default:
 						echo "<center><h3>Maaf halaman tidak ditemukan</h3></center>";
 						break;
