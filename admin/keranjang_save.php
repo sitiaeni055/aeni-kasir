@@ -13,16 +13,20 @@
         // MENGAMBIL ID PESANAN TERBARU
         $pesanan_id = $conn->insert_id;
         
-        
-
-        
-        echo $pesanan_id;
         foreach ($_SESSION["keranjang"] as $menu_id => $jumlah){
             $conn->query("INSERT INTO pesanan_details Value ('', '$pesanan_id', '$menu_id', '$jumlah')");
         }
        // MENGUPDATE STATUS TABLE TABLES
        $table_update = $conn->query("UPDATE `tables` SET `status` = 'terisi' WHERE `id` = '$table_id'");
-
+        
+        // MENGHAPUS SESSION KERANJANG
+        unset($_SESSION["keranjang"]);
+        if ( $table_update ) {
+            echo ("<script LANGUAGE='JavaScript'>
+            window.alert('Pesanan Berhasil Ditambahkan');
+            window.location.href='home.php?halaman=pesanan';
+            </script>"); 
+        }
     }
+    
 ?>
-<pre><?php print_r($_SESSION["keranjang"]) ?></pre>

@@ -59,7 +59,8 @@
 					</label>
 				</h2>
 			</header>
-			
+			<!-- Button trigger modal -->
+
 			<?php
 			if (isset($_GET['halaman'])){
 				$page = $_GET['halaman'];
