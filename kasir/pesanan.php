@@ -67,14 +67,16 @@
                             <!-- MENGECEK STATUS PEMBAYARAN -->
                             </td>
                             <td>
-                            <!-- CEK STATUS PEMBAYARAN UNTUK MENAMPILKAN TOMBOL BAYAR -->
-                                <?php if($row["bayar"] == "belum") : ?>
-                                <a href="pesanan_detail.php?id=<?php echo $row['id'] ?>">
+                                <a href="home.php?halaman=pesanan-invoice">
                                     <button class="btn btn-primary">
-                                        Bayar
+                                    <i class='bx bx-printer'></i>
                                     </button>
                                 </a>
-                                <?php endif ?>
+                                <a href="home.php?id=<?php echo $row['id']?>&halaman=pesanan-delete">
+                                    <button class="btn btn-danger">
+                                    <i class='bx bxs-trash'></i>
+                                    </button>
+                                </a>
                             </td>
                         </tr>
                     <?php

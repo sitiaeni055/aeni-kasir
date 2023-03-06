@@ -20,7 +20,7 @@
           <label>Nama Waiters</label>
           <input type="text" class="form-control" name="pelayan_nama" autofocus="" required="" value="<?php echo $row['pelayan_nama']?>"/>
         </div>
-        <button type="submit" name="edit" class="btn btn-light">Edit</button>
+        <button type="submit" name="edit" class="btn btn-light">Simpan</button>
         </section>
     </form>
 </div>

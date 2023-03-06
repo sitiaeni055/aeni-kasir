@@ -135,6 +135,9 @@
 					case 'pesanan-invoice':
 						include "pesanan_invoice.php";
 						break;	
+					case 'pesanan-delete':
+						include "pesanan_delete.php";
+						break;	
 					default:
 						echo "<center><h3>Maaf halaman tidak ditemukan</h3></center>";
 						break;

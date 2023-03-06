@@ -29,7 +29,7 @@
                     <thead>
                         <tr>
                             <th>No</th>
-                            <th>Nama Produk</th>
+                            <th>Nama Pelanggan</th>
                             <th>No Meja</th>
                             <th>Pelayan</th>
                             <th>Tanggal</th>
@@ -67,12 +67,12 @@
                             <!-- MENGECEK STATUS PEMBAYARAN -->
                             </td>
                             <td>
-                                <a href="">
+                                <a href="home.php?id=<?php echo $row['id']?>&halaman=pesanan-invoice">
                                     <button class="btn btn-primary">
                                     <i class='bx bx-printer'></i>
                                     </button>
                                 </a>
-                                <a href="">
+                                <a href="home.php?id=<?php echo $row['id']?>&halaman=pesanan-delete">
                                     <button class="btn btn-danger">
                                     <i class='bx bxs-trash'></i>
                                     </button>

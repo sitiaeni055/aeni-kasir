@@ -39,7 +39,7 @@
         </div>
     </div>
 </div>
-<div class="container-fluid" style="background: #EEE9DA; max-height: 500px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);" id="about">
+<div class="container-fluid" style="background: #F0EEED; max-height: 500px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);" id="about">
     <div class="row">
     <h2 class="text-center mt-4">About Us</h2>
     <div class="col-md-6 mt-5 p-5">
@@ -53,7 +53,8 @@
     </div>
 </div>
 </section>
-<section class="container p-2 mt-5" style="background: #EEE9DA;" id="menu">
+<section class="container p-2 mt-5" style="background: #F0EEED
+;" id="menu">
     <div class="row">
         <div class="col-6 p-5">
             <h2>Menu</h2>

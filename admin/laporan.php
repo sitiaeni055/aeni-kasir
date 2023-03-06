@@ -1,4 +1,5 @@
 <div class="row mt-4 pt-4">
+<fieldset id="print">
     <div class="col-md-8">
         <div class="card border-0 card-h-100">
             <div class="card-header border-0 d-flex justify-content-between">                 
@@ -26,7 +27,7 @@
             </div>
             <!-- Table -->
             <div class="">
-            <fieldset id="print">
+            
                 <table class="table mt-4" >
                     <thead>
                         <tr>
@@ -37,7 +38,6 @@
                             <th>Tanggal</th>
                             <th>Total</th>
                             <th>Bayar</th>
-                            <th>Aksi</th>
                         </tr>
                     </thead>
                     <?php
@@ -68,22 +68,13 @@
                             <?php endif ?>
                             <!-- MENGECEK STATUS PEMBAYARAN -->
                             </td>
-                            <td>
-                            <!-- CEK STATUS PEMBAYARAN UNTUK MENAMPILKAN TOMBOL BAYAR -->
-                                <?php if($row["bayar"] == "belum") : ?>
-                                <a href="pesanan_detail.php?id=<?php echo $row['id'] ?>">
-                                    <button class="btn btn-primary">
-                                        Bayar
-                                    </button>
-                                </a>
-                                <?php endif ?>
-                            </td>
+                                
                         </tr>
                     <?php
                     }
                     ?>
                 </table>
-                </fieldset>                        
+                                       
             </div>
         </div>
     </div>
@@ -96,8 +87,9 @@
         <h3>Total Pendapatan</h3>
         <h4 class="mt-4">Total : Rp.<?php echo $sum ?></h4>
     </div>
-
+   
 </div>
+</fieldset>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script type="text/javascript">
