@@ -19,11 +19,9 @@ if(isset($_POST['add'])){
         <div class="my-4">
             <label>Status</label>
             <select name="status" id="" class="form-control">
-            <?php $result = $conn->query("SELECT * FROM tables"); ?>
-            <?php while($row = $result->fetch_assoc()) : ?>
-                <option value="<?php echo $row['id'] ?>"><?php echo $row['status'] ?></option>
-            
-            <?php endwhile; ?>
+            <option selected></option>
+            <option value="1">Kosong</option>
+            <option value="2">Terisi</option>
             </select>
         </div>
         <div class="my-4">

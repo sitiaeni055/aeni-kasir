@@ -42,7 +42,7 @@
           <label>Gambar Produk</label>
          <input type="file" class="form-control" name="gambar"value="<?php echo $row['gambar'];?> "/>
         </div>
-        <button type="submit" name="edit" class="btn btn-light">Edit</button>
+        <button type="submit" name="edit" class="btn btn-light">Simpan</button>
         </div>
         </section>
     </form>
