@@ -15,6 +15,9 @@
     border-top: 2px solid;
 }
 </style>
+<?php $id = $_GET["id"] ?>
+<?php  $sql = "SELECT pesanan_details.id, pesanan_details.pesanan_id, pesanan_details.jumlah, menus.nama_menu, menus.harga FROM pesanan_details INNER JOIN menus ON pesanan_details.menu_id = menus.id WHERE pesanan_details.pesanan_id='$id'" ?>
+<?php $result = $conn->query($sql);?>
 <div class="container p-4 my-4">
     <div class="row">
 	<fieldset id="print">
@@ -23,38 +26,17 @@
     			<h2>Invoice</h2><h3 class="ms-auto">Order # 12345</h3>
     		</div>
     		<hr>
+			<?php $sqlpesanan = "SELECT * FROM pesanans WHERE id='$id'" ?>
+			<?php $resultpesanan = $conn->query($sqlpesanan);?>
+			<?php $pemesan = $resultpesanan->fetch_assoc() ?>
     		<div class="row">
     			<div class="col-xs-6">
     				<address>
-    				<strong>Billed To:</strong><br>
-    					John Smith<br>
-    					1234 Main<br>
+    				<strong>Pesanan Atas Nama :</strong><br>
+    					<?php echo $pemesan["nama_pelanggan"] ?><br>
+    					<?php echo $pemesan["tanggal"] ?><br>
     					Apt. 4B<br>
     					Springfield, ST 54321
-    				</address>
-    			</div>
-    			<div class="col-xs-6 text-right">
-    				<address>
-        			<strong>Shipped To:</strong><br>
-    					Jane Smith<br>
-    					1234 Main<br>
-    					Apt. 4B<br>
-    					Springfield, ST 54321
-    				</address>
-    			</div>
-    		</div>
-    		<div class="row">
-    			<div class="col-xs-6">
-    				<address>
-    					<strong>Payment Method:</strong><br>
-    					Visa ending **** 4242<br>
-    					jsmith@email.com
-    				</address>
-    			</div>
-    			<div class="col-xs-6 text-right">
-    				<address>
-    					<strong>Order Date:</strong><br>
-    					March 7, 2014<br><br>
     				</address>
     			</div>
     		</div>
@@ -72,50 +54,28 @@
     					<table class="table table-condensed">
     						<thead>
                                 <tr>
-        							<td><strong>Item</strong></td>
-        							<td class="text-center"><strong>Price</strong></td>
-        							<td class="text-center"><strong>Quantity</strong></td>
-        							<td class="text-right"><strong>Totals</strong></td>
+        							<td><strong>Menu</strong></td>
+        							<td class="text-right"><strong>Harga</strong></td>
+        							<td class="text-center"><strong>Jumlah</strong></td>
+        							<td class="text-right"><strong>Total</strong></td>
                                 </tr>
     						</thead>
     						<tbody>
-    							<!-- foreach ($order->lineItems as $line) or some such thing here -->
+    						<?php while($menu = $result->fetch_assoc()) : ?>
     							<tr>
-    								<td>BS-200</td>
-    								<td class="text-center">$10.99</td>
-    								<td class="text-center">1</td>
-    								<td class="text-right">$10.99</td>
+    								<td><?php echo $menu['nama_menu']?></td>
+    								<td class="text-right">Rp. <?php echo $menu['harga']?></td>
+    								<td class="text-center"><?php echo $menu['jumlah']?></td>
+    								<td class="text-right"><?php echo $menu['harga']*$menu['jumlah']?></td>
     							</tr>
-                                <tr>
-        							<td>BS-400</td>
-    								<td class="text-center">$20.00</td>
-    								<td class="text-center">3</td>
-    								<td class="text-right">$60.00</td>
-    							</tr>
-                                <tr>
-            						<td>BS-1000</td>
-    								<td class="text-center">$600.00</td>
-    								<td class="text-center">1</td>
-    								<td class="text-right">$600.00</td>
-    							</tr>
+								<?php endwhile ?>
     							<tr>
     								<td class="thick-line"></td>
     								<td class="thick-line"></td>
     								<td class="thick-line text-center"><strong>Subtotal</strong></td>
-    								<td class="thick-line text-right">$670.99</td>
+    								<td class="thick-line text-right"><strong><?php echo $pemesan["total"] ?></strong></td>
     							</tr>
-    							<tr>
-    								<td class="no-line"></td>
-    								<td class="no-line"></td>
-    								<td class="no-line text-center"><strong>Shipping</strong></td>
-    								<td class="no-line text-right">$15</td>
-    							</tr>
-    							<tr>
-    								<td class="no-line"></td>
-    								<td class="no-line"></td>
-    								<td class="no-line text-center"><strong>Total</strong></td>
-    								<td class="no-line text-right">$685.99</td>
-    							</tr>
+    							
     						</tbody>
     					</table>
     				</div>
