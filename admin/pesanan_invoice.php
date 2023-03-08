@@ -18,12 +18,14 @@
 <?php $id = $_GET["id"] ?>
 <?php  $sql = "SELECT pesanan_details.id, pesanan_details.pesanan_id, pesanan_details.jumlah, menus.nama_menu, menus.harga FROM pesanan_details INNER JOIN menus ON pesanan_details.menu_id = menus.id WHERE pesanan_details.pesanan_id='$id'" ?>
 <?php $result = $conn->query($sql);?>
+<button class="btn btn-success mx-2 mt-5" onclick="printDiv('print')" type="submit" data-toggle="print" data-placement="right" title="print"><i class='bx bx-printer'></i></button>
+
 <div class="container p-4 my-4">
-    <div class="row">
-	<fieldset id="print">
+    <div class="row" id="print">
         <div class="col-xs-12">
     		<div class="invoice-title">
     			<h2>Invoice</h2><h3 class="ms-auto">Order # 12345</h3>
+
     		</div>
     		<hr>
 			<?php $sqlpesanan = "SELECT * FROM pesanans WHERE id='$id'" ?>
@@ -41,9 +43,7 @@
     			</div>
     		</div>
     	</div>
-    </div>
-    
-    <div class="row">
+ 
     	<div class="col-md-12">
     		<div class="card p-4">
     			<div class="card-heading">
@@ -82,7 +82,7 @@
     			</div>
     		</div>
     	</div>
-		</fieldset>
+
     </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

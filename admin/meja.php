@@ -15,6 +15,7 @@
     <tr>
         <td>No</td>
         <td>Nama Meja</td>
+        <td>Status</td>
         <td>Aksi</td>
     </tr>
 

@@ -1,5 +1,8 @@
 <?php 
 	session_start();
+	if ($_SESSION['role']=="") {
+		header("location:../login.php?pesan=gagal");
+	}
 	include "../koneksi.php";
 	
 	include "../bot.php";
