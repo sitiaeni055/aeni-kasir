@@ -72,7 +72,7 @@
                                     <i class='bx bx-printer'></i>
                                     </button>
                                 </a>
-                                <a href="home.php?id=<?php echo $row['id']?>&halaman=pesanan-delete">
+                                <a href="home.php?id=<?php echo $row['id']?>&halaman=pesanan-delete"  onclick="return confirm('Anda yakin mau menghapus ini?')">
                                     <button class="btn btn-danger">
                                     <i class='bx bxs-trash'></i>
                                     </button>

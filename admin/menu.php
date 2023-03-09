@@ -33,7 +33,7 @@
             <td><?php echo $row["stock"]?></td>
             <td><img width="70" src="../image/<?php echo $row["gambar"]?>" alt=""></td>
             <td>
-                <a href="home.php?halaman=delete&id=<?php echo $row['id']?>"><button type="submit" class="btn btn-danger">Delete</button></a>
+                <a href="home.php?halaman=delete&id=<?php echo $row['id']?>"><button type="submit" class="btn btn-danger" onclick="return confirm('Anda yakin mau menghapus ini?')">Delete</button></a>
                 <a href="home.php?halaman=menu-edit&id=<?php echo $row['id']?>"><button class="btn btn-primary">Edit</button></a>
             
             </td>

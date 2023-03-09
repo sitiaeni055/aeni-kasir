@@ -31,7 +31,7 @@
             <td><?php echo $row["table_nama"]?></td>
             <td><?php echo $row["status"]?></td>
             <td>
-                <a href="home.php?id=<?php echo $row['id']?>&halaman=meja-delete"><button type="submit" class="btn btn-danger">Delete</button></a>
+                <a href="home.php?id=<?php echo $row['id']?>&halaman=meja-delete"><button type="submit" class="btn btn-danger" onclick="return confirm('Anda yakin mau menghapus ini?')">Delete</button></a>
                 <a href="home.php?id=<?php echo $row['id']?>&halaman=meja-edit"><button class="btn btn-primary">Edit</button></a>
             
             </td>

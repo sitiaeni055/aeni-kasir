@@ -69,6 +69,7 @@
                     <img src="image/<?php echo $menu['gambar']; ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?php echo $menu['nama_menu']; ?></h5>
+                        <h5 class="card-title">Rp. <?php echo $menu['harga']; ?></h5>
                         <h5 class="card-title">Stok : <?php echo $menu['stock']; ?></h5>
                     </div>
                     </div>
