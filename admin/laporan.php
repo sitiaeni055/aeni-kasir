@@ -1,23 +1,33 @@
-<button class="btn btn-success mx-2 mt-5" onclick="printDiv('print')" type="submit" data-toggle="print" data-placement="right" title="print"><i class='bx bx-printer'></i></button>
-
-<div class="row pt-4" id="print">
-
+<div class="row pt-4 mt-2" id="print">
+    <div class="col-md-12 d-flex justify-content-between my-2">
+        <div>
+            <form action="" method="GET" style="text-align: center;">
+                <input  class="py-2 px-4" type="text" name="cari" value="<?php if(isset($_GET['cari'])){ echo $_GET['cari']; } ?>">
+                <input class="py-2 px-4" type="hidden" name="halaman" value="laporan">
+                <button type="submit" class="py-2 px-4">Cari</button>
+            </form>
+        </div>
+        <div>
+            <form action="laporan_export_date.php" method="post" style="text-align: center;">
+                <input  class="py-2 px-4" type="date" name="from">
+                <input class="py-2 px-4" type="date" name="to">
+                <button type="submit" class="py-2 px-4" name="date"><i class='bx bx-export'></i></button>
+            </form>
+        </div>
+    </div>
     <div class="col-md-12">
         <div class="card border-0 card-h-100">
             <div class="card-header border-0 d-flex justify-content-between">                 
-                
                 <h4 class="d-inline">
                     Laporan
                 </h4>
 
-
-                
                 <div class="dropdown">
                     <a href="" class="dropdown-toggle no-arrow text-secondary" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                     </a>
                     <div class="dropdown-menu">
-                        <a href="javascript: void(0);" class="dropdown-item">
+                        <a href="laporan_export.php" class="dropdown-item">
                             Export report
                         </a>
                         <a href="javascript: void(0);" class="dropdown-item">
@@ -96,9 +106,6 @@
   
    
 </div>
-
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <script type="text/javascript">
     function printDiv (el) {
     var a= document.body.innerHTML;

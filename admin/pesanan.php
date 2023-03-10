@@ -1,21 +1,33 @@
 <div class="row mt-4 pt-4">
-<form action="" method="GET" style="text-align: center;">
-<input type="text" name="cari" value="<?php if(isset($_GET['cari'])){ echo $_GET['cari']; } ?>">
-<button type="submit">Cari</button>
-</form>
+    <div class="col-md-12 d-flex justify-content-between my-2"> 
+        <div>
+            <form action="" method="GET" style="text-align: center;">
+                <input  class="py-2 px-4" type="text" name="cari" value="<?php if(isset($_GET['cari'])){ echo $_GET['cari']; } ?>">
+                <input class="py-2 px-4" type="hidden" name="halaman" value="pesanan">
+                <button type="submit" class="py-2 px-4">Cari</button>
+            </form>
+        </div>
+        <div>
+            <form action="laporan_export_date.php" method="post" style="text-align: center;">
+                <input  class="py-2 px-4" type="date" name="from">
+                <input class="py-2 px-4" type="date" name="to">
+                <button type="submit" class="py-2 px-4" name="date"><i class='bx bx-export'></i></button>
+            </form>
+        </div>
+    </div>
     <div class="col-md-12">
         <div class="card border-0 card-h-100">
             <div class="card-header border-0 d-flex justify-content-between">                 
-                
+            
                 <h4 class="d-inline">
                     Recent orders
-                </h3>
+                </h4>
                 <div class="dropdown">
                     <a href="" class="dropdown-toggle no-arrow text-secondary" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                     </a>
                     <div class="dropdown-menu">
-                        <a href="javascript: void(0);" class="dropdown-item">
+                        <a href="exporttoexcel.php" class="dropdown-item">
                             Export report
                         </a>
                         <a href="javascript: void(0);" class="dropdown-item">
@@ -44,18 +56,22 @@
                     </thead>
                     <?php
                     if (isset($_GET['cari'])) {
-                        
                         $pencarian = $_GET['cari'];
-                        $sql = "SELECT * FROM pesanans WHERE nama_pelanggan like '&".$pencarian."&'";
-                    }else{
-                        $sql = "SELECT * FROM pesanans";
+                        $sql = "SELECT pesanans.id, pesanans.nama_pelanggan, pesanans.table_id, pesanans.bayar, pesanans.tanggal, pesanans.total, tables.table_nama, pelayans.pelayan_nama
+                        FROM  tables
+                        INNER JOIN pesanans
+                        on pesanans.table_id = tables.id
+                        INNER JOIN pelayans
+                        on pelayans.id = pesanans.pelayan_id WHERE pesanans.nama_pelanggan like '%".$pencarian."%' OR tables.table_nama like '%".$pencarian."%' OR pesanans.tanggal like '%".$pencarian."%' " ;
+                    } else {
+                    
+                        $sql = "SELECT pesanans.id, pesanans.nama_pelanggan, pesanans.table_id, pesanans.bayar, pesanans.tanggal, pesanans.total, tables.table_nama, pelayans.pelayan_nama
+                        FROM  tables
+                        INNER JOIN pesanans
+                        on pesanans.table_id = tables.id
+                        INNER JOIN pelayans
+                        on pelayans.id = pesanans.pelayan_id ORDER BY pesanans.tanggal DESC";
                     }
-                    $sql = "SELECT pesanans.id, pesanans.nama_pelanggan, pesanans.table_id, pesanans.bayar, pesanans.tanggal, pesanans.total, tables.table_nama, pelayans.pelayan_nama
-                    FROM  tables
-                    INNER JOIN pesanans
-                    on pesanans.table_id = tables.id
-                    INNER JOIN pelayans
-                    on pelayans.id = pesanans.pelayan_id ORDER BY pesanans.tanggal DESC";
                     $result = $conn->query($sql);
                     $no = 1;
                     while ($row=$result->fetch_assoc()){
