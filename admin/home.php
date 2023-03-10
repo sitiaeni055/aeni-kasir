@@ -125,10 +125,7 @@
 						break;		
 					case 'pesanan':
 						include "pesanan.php";
-						break;		
-					case 'pesanan':
-						include "pesanan.php";
-						break;		
+						break;			
 					case 'laporan':
 						include "laporan.php";
 						break;		

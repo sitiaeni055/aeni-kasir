@@ -10,7 +10,6 @@
         <td>No</td>
         <td>Nama</td>
         <td>Username</td>
-        <td>Password</td>
         <td>Role</td>
         <td>Aksi</td>
     </tr>
@@ -26,7 +25,6 @@
             <td><?php echo $no++ ?></td>
             <td><?php echo $row["nama"]?></td>
             <td><?php echo $row["username"]?></td>
-            <td><?php echo $row["password"]?></td>
             <td><?php echo $row["role"]?></td>
             <td>
                 <a href="home.php?halaman=delete&id=<?php echo $row['id']?>"><button type="submit" class="btn btn-danger"  onclick="return confirm('Anda yakin mau menghapus ini?')">Delete</button></a>

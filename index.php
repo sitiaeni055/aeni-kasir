@@ -83,7 +83,7 @@
         <h2>Meja</h2>
             <div class="row">
                 <?php 
-                $sql = "SELECT * FROM tables";
+                $sql = "SELECT * FROM tables WHERE status='kosong'";
                 $result = $conn->query($sql);
                 while($table = $result->fetch_assoc()){
                 ?>

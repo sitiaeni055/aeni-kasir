@@ -1,4 +1,8 @@
 <div class="row mt-4 pt-4">
+<form action="" method="GET" style="text-align: center;">
+<input type="text" name="cari" value="<?php if(isset($_GET['cari'])){ echo $_GET['cari']; } ?>">
+<button type="submit">Cari</button>
+</form>
     <div class="col-md-12">
         <div class="card border-0 card-h-100">
             <div class="card-header border-0 d-flex justify-content-between">                 
@@ -39,6 +43,12 @@
                         </tr>
                     </thead>
                     <?php
+                    if (isset($_GET['cari'])) {
+                        $pencarian = $_GET['cari'];
+                        $sql = "SELECT * FROM pesanans WHERE nama_pelanggan like '&".$pencarian."&'";
+                    }else{
+                        $sql = "SELECT * FROM pesanans";
+                    }
                     $sql = "SELECT pesanans.id, pesanans.nama_pelanggan, pesanans.table_id, pesanans.bayar, pesanans.tanggal, pesanans.total, tables.table_nama, pelayans.pelayan_nama
                     FROM  tables
                     INNER JOIN pesanans

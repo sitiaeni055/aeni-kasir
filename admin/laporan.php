@@ -10,8 +10,8 @@
                     Laporan
                 </h4>
 
-                 
 
+                
                 <div class="dropdown">
                     <a href="" class="dropdown-toggle no-arrow text-secondary" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
@@ -32,7 +32,7 @@
             <!-- Table -->
             <div class="row">
             <div class="col-8 col-sm-8">
-            
+
             <table class="table mt-4" >
                 <thead>
                     <tr>
