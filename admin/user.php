@@ -13,7 +13,7 @@
         <td>Role</td>
         <td>Aksi</td>
     </tr>
-
+    
     <?php
     $sql = "SELECT * FROM users";
     $result = $conn->query($sql);

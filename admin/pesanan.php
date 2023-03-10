@@ -44,6 +44,7 @@
                     </thead>
                     <?php
                     if (isset($_GET['cari'])) {
+                        
                         $pencarian = $_GET['cari'];
                         $sql = "SELECT * FROM pesanans WHERE nama_pelanggan like '&".$pencarian."&'";
                     }else{
