@@ -118,8 +118,8 @@
                                     <form action="" method="post">
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Status </label>
-                                            <input type="text" name="table_id" value="<?php echo $row['table_id'] ?>">
-                                            <input type="text" name="id_trans" value="<?php echo $row['id'] ?>">
+                                            <input type="hidden" name="table_id" value="<?php echo $row['table_id'] ?>">
+                                            <input type="hidden" name="id_trans" value="<?php echo $row['id'] ?>">
                                             <select class="form-select" name="bayar">
                                                 <option value="sudah" <?php if($row['bayar'] == 'sudah') echo"selected"; ?> >Sudah</option>
                                                 <option value="belum" <?php if($row['bayar'] == 'belum') echo"selected"; ?> >Belum</option>

@@ -1,17 +1,33 @@
 <div class="row mt-4 pt-4">
+    <div class="col-md-12 d-flex justify-content-between my-2"> 
+        <div>
+            <form action="" method="GET" style="text-align: center;">
+                <input  class="py-2 px-4" type="text" name="cari" value="<?php if(isset($_GET['cari'])){ echo $_GET['cari']; } ?>">
+                <input class="py-2 px-4" type="hidden" name="kasir" value="pesanan">
+                <button type="submit" class="py-2 px-4">Cari</button>
+            </form>
+        </div>
+        <div>
+            <form action="laporan_export_date.php" method="post" style="text-align: center;">
+                <input  class="py-2 px-4" type="date" name="from">
+                <input class="py-2 px-4" type="date" name="to">
+                <button type="submit" class="py-2 px-4" name="date"><i class='bx bx-export'></i></button>
+            </form>
+        </div>
+    </div>
     <div class="col-md-12">
         <div class="card border-0 card-h-100">
             <div class="card-header border-0 d-flex justify-content-between">                 
-                
+            
                 <h4 class="d-inline">
                     Recent orders
-                </h3>
+                </h4>
                 <div class="dropdown">
                     <a href="" class="dropdown-toggle no-arrow text-secondary" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 
                     </a>
                     <div class="dropdown-menu">
-                        <a href="javascript: void(0);" class="dropdown-item">
+                        <a href="exporttoexcel.php" class="dropdown-item">
                             Export report
                         </a>
                         <a href="javascript: void(0);" class="dropdown-item">
@@ -39,12 +55,23 @@
                         </tr>
                     </thead>
                     <?php
-                    $sql = "SELECT pesanans.id, pesanans.nama_pelanggan, pesanans.table_id, pesanans.bayar, pesanans.tanggal, pesanans.total, tables.table_nama, pelayans.pelayan_nama
-                    FROM  tables
-                    INNER JOIN pesanans
-                    on pesanans.table_id = tables.id
-                    INNER JOIN pelayans
-                    on pelayans.id = pesanans.pelayan_id ORDER BY pesanans.tanggal DESC";
+                    if (isset($_GET['cari'])) {
+                        $pencarian = $_GET['cari'];
+                        $sql = "SELECT pesanans.id, pesanans.nama_pelanggan, pesanans.table_id, pesanans.bayar, pesanans.tanggal, pesanans.total, tables.table_nama, pelayans.pelayan_nama
+                        FROM  tables
+                        INNER JOIN pesanans
+                        on pesanans.table_id = tables.id
+                        INNER JOIN pelayans
+                        on pelayans.id = pesanans.pelayan_id WHERE pesanans.nama_pelanggan like '%".$pencarian."%' OR tables.table_nama like '%".$pencarian."%' OR pesanans.tanggal like '%".$pencarian."%' " ;
+                    } else {
+                    
+                        $sql = "SELECT pesanans.id, pesanans.nama_pelanggan, pesanans.table_id, pesanans.bayar, pesanans.tanggal, pesanans.total, tables.table_nama, pelayans.pelayan_nama
+                        FROM  tables
+                        INNER JOIN pesanans
+                        on pesanans.table_id = tables.id
+                        INNER JOIN pelayans
+                        on pelayans.id = pesanans.pelayan_id ORDER BY pesanans.tanggal DESC";
+                    }
                     $result = $conn->query($sql);
                     $no = 1;
                     while ($row=$result->fetch_assoc()){
@@ -72,11 +99,6 @@
                                     <i class='bx bx-printer'></i>
                                     </button>
                                 </a>
-                                <a href="index.php?id=<?php echo $row['id']?>&kasir=pesanan-delete"  onclick="return confirm('Anda yakin mau menghapus ini?')">
-                                    <button class="btn btn-danger">
-                                    <i class='bx bxs-trash'></i>
-                                    </button>
-                                </a>
                             </td>
                         </tr>
                         <!-- MENAMPILKAN MODAL UNTUK UBAH STATUS PEMBAYARAN -->
@@ -91,8 +113,8 @@
                                     <form action="" method="post">
                                         <div class="mb-3">
                                             <label for="exampleFormControlInput1" class="form-label">Status </label>
-                                            <input type="text" name="table_id" value="<?php echo $row['table_id'] ?>">
-                                            <input type="text" name="id_trans" value="<?php echo $row['id'] ?>">
+                                            <input type="hidden" name="table_id" value="<?php echo $row['table_id'] ?>">
+                                            <input type="hidden" name="id_trans" value="<?php echo $row['id'] ?>">
                                             <select class="form-select" name="bayar">
                                                 <option value="sudah" <?php if($row['bayar'] == 'sudah') echo"selected"; ?> >Sudah</option>
                                                 <option value="belum" <?php if($row['bayar'] == 'belum') echo"selected"; ?> >Belum</option>
@@ -136,7 +158,7 @@ if(isset($_POST['btn-bayar'])){
     if($update_bayar){
         echo ("<script LANGUAGE='JavaScript'>
         window.alert('Pembayaran Berhasil Di Proses');
-        window.location.href='home.php?halaman=pesanan';
+        window.location.href='index.php?kasir=pesanan';
         </script>"); 
     
     }
