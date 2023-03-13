@@ -1,5 +1,5 @@
 <!-- TOMBOL TAMBAH PRODUK -->
-<a href="">
+<a href="home.php?halaman=user-add">
     <button type="submit" class="btn btn-secondary" style=" margin-top: 50px; ">
         <i class="fa-solid fa-plus"></i>
     </button>
@@ -27,8 +27,8 @@
             <td><?php echo $row["username"]?></td>
             <td><?php echo $row["role"]?></td>
             <td>
-                <a href="home.php?halaman=delete&id=<?php echo $row['id']?>"><button type="submit" class="btn btn-danger"  onclick="return confirm('Anda yakin mau menghapus ini?')">Delete</button></a>
-                <a href="home.php?halaman=menu-edit&id=<?php echo $row['id']?>"><button class="btn btn-primary">Edit</button></a>
+                <a href="home.php?halaman=user-delete&id=<?php echo $row['id']?>"><button type="submit" class="btn btn-danger"  onclick="return confirm('Anda yakin mau menghapus ini?')">Delete</button></a>
+                <a href="home.php?halaman=user-edit&id=<?php echo $row['id']?>"><button class="btn btn-primary">Edit</button></a>
             
             </td>
         </tr>
@@ -36,4 +36,3 @@
     }
     ?>
 </table>
-

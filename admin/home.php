@@ -132,6 +132,15 @@
 					case 'user':
 						include "user.php";
 						break;
+					case 'user-add':
+						include "user_add.php";
+						break;
+					case 'user-edit':
+						include "user_edit.php";
+						break;
+					case 'user-delete':
+						include "user_delete.php";
+						break;
 					case 'pesanan-invoice':
 						include "pesanan_invoice.php";
 						break;	

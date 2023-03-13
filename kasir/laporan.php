@@ -56,12 +56,22 @@
                     </tr>
                 </thead>
                 <?php
-                $sql = "SELECT pesanans.id, pesanans.nama_pelanggan, pesanans.table_id, pesanans.bayar, pesanans.tanggal, pesanans.total, tables.table_nama, pelayans.pelayan_nama
-                FROM  tables
-                INNER JOIN pesanans
-                on pesanans.table_id = tables.id
-                INNER JOIN pelayans
-                on pelayans.id = pesanans.pelayan_id ORDER BY pesanans.tanggal DESC";
+                 if (isset($_GET['cari'])) {
+                    $pencarian = $_GET['cari'];
+                    $sql = "SELECT pesanans.id, pesanans.nama_pelanggan, pesanans.table_id, pesanans.bayar, pesanans.tanggal, pesanans.total, tables.table_nama, pelayans.pelayan_nama
+                    FROM  tables
+                    INNER JOIN pesanans
+                    on pesanans.table_id = tables.id
+                    INNER JOIN pelayans
+                    on pelayans.id = pesanans.pelayan_id WHERE pesanans.nama_pelanggan like '%".$pencarian."%' OR tables.table_nama like '%".$pencarian."%' OR pesanans.tanggal like '%".$pencarian."%' " ;
+                }else{
+                    $sql = "SELECT pesanans.id, pesanans.nama_pelanggan, pesanans.table_id, pesanans.bayar, pesanans.tanggal, pesanans.total, tables.table_nama, pelayans.pelayan_nama
+                    FROM  tables
+                    INNER JOIN pesanans
+                    on pesanans.table_id = tables.id
+                    INNER JOIN pelayans
+                    on pelayans.id = pesanans.pelayan_id ORDER BY pesanans.tanggal DESC";
+                }
                 $result = $conn->query($sql);
                 $no = 1;
                 while ($row=$result->fetch_assoc()){
